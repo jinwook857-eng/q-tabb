@@ -40,15 +40,16 @@
 
         .quote { font-style: italic; border-left: 4px solid var(--secondary-color); padding-left: 20px; margin-bottom: 25px; color: #475569; font-size: 1.1rem; }
         
-        /* 약물 사례 카드 */
+        .feature-list { list-style: none; margin-top: 20px; }
+        .feature-list li { margin-bottom: 25px; padding-left: 35px; position: relative; color: var(--text-dark); }
+        .feature-list li::before { content: '✓'; position: absolute; left: 0; color: var(--secondary-color); font-weight: bold; font-size: 1.2rem; }
+        .feature-list li strong { color: var(--primary-color); display: block; margin-bottom: 5px; font-size: 1.1rem; }
+
         .case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px; }
         .case-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 15px; overflow: hidden; transition: 0.3s; }
-        .case-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
         .case-img { width: 100%; height: 250px; object-fit: cover; }
         .case-body { padding: 30px; }
         .case-tag { display: inline-block; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; margin-bottom: 15px; }
-        .tag-emergency { background: #ffe4e6; color: var(--accent-red); }
-        .tag-chronic { background: #e0f2fe; color: var(--primary-color); }
 
         .vision-section { background: var(--primary-color); color: white; max-width: 100%; text-align: center; padding: 100px 20px; }
         .vision-card { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); padding: 50px; border-radius: 15px; margin-top: 40px; max-width: 900px; margin-left: auto; margin-right: auto; backdrop-filter: blur(10px); }
@@ -74,89 +75,116 @@
                 <a href="#about">회사소개</a>
                 <a href="#cases">적용사례</a>
                 <a href="#product">제품소개</a>
+                <a href="#background">개발배경</a>
                 <a href="#vision">미래비전</a>
                 <a href="#team">Team</a>
             </div>
         </nav>
     </header>
 
-    <!-- 1. 히어로 섹션 -->
+    <!-- 히어로 -->
     <section class="hero">
         <div>
             <h1>열지 말고, <span style="color: var(--primary-color);">누르세요.</span></h1>
-            <p>골든타임을 지키고 복약의 고통을 덜어주는 혁신 솔루션, Medi-Push</p>
+            <p>복약의 장벽을 낮추어 생명을 지킵니다. Medi-Push One</p>
             <a href="#cases" class="btn-main">적용 사례 보기</a>
         </div>
     </section>
 
-    <!-- 2. 회사 소개 -->
+    <!-- [회사 소개: About Us] -->
     <section id="about">
         <div class="section-title">
-            <h2>About Us</h2>
+            <h2>[회사 소개: About Us]</h2>
         </div>
         <div class="grid-2">
             <div class="content">
                 <div class="quote">"복약의 장벽을 낮추어 생명을 지킵니다."</div>
-                <p><strong>Medi-Push</strong>는 기존의 번거로운 복약 과정을 혁신하여, 누구나 쉽고 빠르게 약을 복용할 수 있는 솔루션을 연구하는 메디테크(Medi-Tech) 팀입니다. 우리는 기술이 사람을 돕는 가장 따뜻한 방법은 '간편함'에 있다고 믿습니다.</p>
+                <p><strong>Medi-Push</strong>는 기존의 번거로운 복약 과정을 혁신하여, 누구나 쉽고 빠르게 약을 복용할 수 있는 솔루션을 연구하는 메디테크(Medi-Tech) 팀입니다.</p>
+                <p>우리는 기술이 사람을 돕는 가장 따뜻한 방법은 '간편함'에 있다고 믿습니다.</p>
             </div>
             <div class="img-container">
+                <!-- 파일명 image2.jpg.png 반영 -->
                 <img src="image2.jpg.png" alt="Medi-Push">
             </div>
         </div>
     </section>
 
-    <!-- 3. 주요 적용 사례 (추가된 섹션) -->
+    <!-- Target Medication 사례 -->
     <section id="cases" style="background-color: var(--bg-light); max-width: 100%;">
         <div style="max-width: 1200px; margin: 0 auto;">
             <div class="section-title">
                 <h2>Target Medication</h2>
-                <p>Medi-Push가 꼭 필요한 환자들을 위한 솔루션</p>
+                <p>Medi-Push One이 골든타임을 지키는 법</p>
             </div>
             <div class="case-grid">
-                <!-- 사례 1: 니트로글리세린 -->
+                <!-- 니트로글리세린 사례 (image4.jpg.jpg 반영) -->
                 <div class="case-card">
-                    <img src="pill1.jpg" class="case-img" alt="니트로글리세린">
+                    <img src="image4.jpg.jpg" class="case-img" alt="니트로글리세린">
                     <div class="case-body">
-                        <span class="case-tag tag-emergency">심혈관 질환 (응급)</span>
+                        <span class="case-tag" style="background:#ffe4e6; color:#e11d48;">심혈관 질환 (응급)</span>
                         <h3>니트로글리세린 (설하정)</h3>
-                        <p style="margin-top: 15px; color: var(--text-gray);">협심증 발작 시 1분 1초가 급한 골든타임 안에 복용해야 합니다. 하지만 긴박한 상황에서 작고 미끄러운 약병을 여는 것은 매우 어렵습니다. <strong>Medi-Push는 단 한 번의 클릭으로 즉시 복용을 돕습니다.</strong></p>
+                        <p style="margin-top: 15px; color: var(--text-gray);">협심증 발작 시 1분 1초가 급한 골든타임 안에 복용해야 합니다. 하지만 긴박한 상황에서 작고 미끄러운 약병을 여는 것은 매우 어렵습니다. <strong>Medi-Push One은 즉각적인 복용을 보장합니다.</strong></p>
                     </div>
                 </div>
-                <!-- 사례 2: 메토트렉세이트 -->
+                <!-- 메토트렉세이트 사례 (image5.jpg.jpg 반영) -->
                 <div class="case-card">
-                    <img src="pill2.jpg" class="case-img" alt="메토트렉세이트">
+                    <img src="image5.jpg.jpg" class="case-img" alt="메토트렉세이트">
                     <div class="case-body">
-                        <span class="case-tag tag-chronic">류마티스 관절염 (만성)</span>
+                        <span class="case-tag" style="background:#e0f2fe; color:#0046ad;">류마티스 관절염 (만성)</span>
                         <h3>메토트렉세이트 (MTX)</h3>
-                        <p style="margin-top: 15px; color: var(--text-gray);">류마티스 환자들은 손가락 관절 통증과 변형으로 인해 단단한 은박 PTP 포장을 뜯는 데 큰 고통을 느낍니다. <strong>Medi-Push는 손의 힘이 약한 환자들도 통증 없이 약을 꺼낼 수 있게 합니다.</strong></p>
+                        <p style="margin-top: 15px; color: var(--text-gray);">손가락 관절 통증과 변형으로 인해 단단한 은박 PTP 포장을 뜯는 데 큰 고통을 느끼는 환자들을 위해, <strong>Medi-Push One은 통증 없는 무압박 배출을 지원합니다.</strong></p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 4. 제품 소개 -->
+    <!-- [제품 소개: Product Concept] & [핵심 기능] -->
     <section id="product">
         <div class="section-title">
-            <h2>Product Concept</h2>
+            <h2>[제품 소개: Product Concept]</h2>
         </div>
         <div class="grid-2">
             <div class="img-container">
+                <!-- 파일명 image1.jpg.png 반영 -->
                 <img src="image1.jpg.png" alt="내부 구조도">
             </div>
             <div class="content">
-                <h3 style="margin-bottom: 20px;">Medi-Push One (메디푸시 원)</h3>
-                <p>레뷸라이저의 직관적인 인터페이스를 도입한 세계 최초 원터치 디스펜서입니다.</p>
-                <ul style="list-style: none; margin-top: 20px;">
-                    <li style="margin-bottom: 10px;">✅ <strong>One-Touch:</strong> 5단계 과정을 단 1단계로 단축</li>
-                    <li style="margin-bottom: 10px;">✅ <strong>Hygienic:</strong> 손 접촉 없는 위생적 배출</li>
-                    <li style="margin-bottom: 10px;">✅ <strong>Precision:</strong> 내부 셔터로 정확히 1정만 배출</li>
+                <h3 style="color: var(--text-dark); margin-bottom:10px;">제품명: Medi-Push One (메디푸시 원)</h3>
+                <div class="quote">"열지 말고, 누르세요."</div>
+                <p>메디푸시는 레뷸라이저(흡입기)의 직관적인 인터페이스를 경구약 복용에 도입한 세계 최초의 원터치 디스펜서입니다. 응급 상황이나 거동이 불편한 환자, 손의 근력이 약해진 고령층을 위해 설계되었습니다.</p>
+                
+                <h3 style="margin-top: 40px;">[핵심 기능: Key Features]</h3>
+                <ul class="feature-list">
+                    <li><strong>1. One-Touch Dispensing</strong> 뚜껑을 돌려 열고 약을 덜어내는 5단계 과정을 단 1단계(Push)로 단축.</li>
+                    <li><strong>2. Hygienic System</strong> 손에 알약을 직접 닿게 하지 않아 교차 오염을 방지하고 위생적인 복약 환경 제공.</li>
+                    <li><strong>3. Precision Engineering</strong> 내부 셔터 메커니즘을 통해 버튼 클릭 시 정확히 알약 1정만 배출되도록 설계.</li>
+                    <li><strong>4. Smart Monitoring (Ready)</strong> 아두이노 기반 센서를 통해 복약 시간과 횟수를 자동 기록하여 보호자와 의료진에게 전송 가능 (개발 중).</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- 5. 미래 비전 -->
+    <!-- [개발 배경: Development Background] -->
+    <section id="background" style="background-color: var(--bg-light); max-width: 100%;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div class="section-title">
+                <h2>[개발 배경: Development Background]</h2>
+            </div>
+            <div class="grid-2">
+                <div class="content">
+                    <div class="quote">"매일 챙겨 먹어야 하는 약, 하지만 누군가에게는 뚜껑을 여는 것조차 힘겨운 일입니다."</div>
+                    <p>특히 협심증이나 천식 등 급박한 투약이 필요한 상황에서 기존 약병의 불편함은 치명적일 수 있습니다. 우리는 이 문제를 해결하기 위해 '누르는 즉시 입으로' 전달되는 구조를 고안했습니다.</p>
+                </div>
+                <div class="img-container" style="background:white;">
+                    <!-- 파일명 image3.jpg.png 반영 -->
+                    <img src="image3.jpg.png" alt="제품 전체샷">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 미래 비전 -->
     <section id="vision" class="vision-section">
         <div class="section-title">
             <h2 style="color: white;">Future Vision</h2>
@@ -167,13 +195,22 @@
         </div>
     </section>
 
-    <!-- 6. 팀 소개 -->
+    <!-- 팀 소개 -->
     <section id="team">
         <div class="section-title"><h2>Team Q-Tab</h2></div>
         <div class="team-grid">
-            <div class="team-card"><h4>🎯 기획 / 웹 개발</h4><p style="font-weight: bold;">김진우</p></div>
-            <div class="team-card"><h4>⚡ 하드웨어 개발</h4><p style="font-weight: bold;">김성준</p></div>
-            <div class="team-card"><h4>🔧 기구 설계</h4><p style="font-weight: bold;">한지민</p></div>
+            <div class="team-card">
+                <h4>🎯 기획 / 웹 개발</h4>
+                <p style="font-weight: bold; font-size: 1.2rem; margin-top:5px;">김진우</p>
+            </div>
+            <div class="team-card">
+                <h4>⚡ 하드웨어 개발</h4>
+                <p style="font-weight: bold; font-size: 1.2rem; margin-top:5px;">김성준</p>
+            </div>
+            <div class="team-card">
+                <h4>🔧 기구 설계</h4>
+                <p style="font-weight: bold; font-size: 1.2rem; margin-top:5px;">한지민</p>
+            </div>
         </div>
     </section>
 
