@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/industry-6a91af9c-0dfc-4533-90c2-32776d8cc803/styles.css">
+<script src="_ds/industry-6a91af9c-0dfc-4533-90c2-32776d8cc803/_ds_bundle.js"></script>
+<style>
+html, body { height: 100%; }
+body { margin: 0; display: grid; place-items: center; background: var(--color-neutral-200); }
+a { color: var(--color-accent); }
+a:hover { color: var(--color-accent-700); }
+@keyframes mp-pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.55; } }
+@keyframes mp-ring { 0% { transform: scale(0.6); opacity: 0.45; } 100% { transform: scale(1.7); opacity: 0; } }
+@keyframes mp-settle { 0% { color: var(--color-accent-600); } 100% { color: inherit; } }
+@keyframes mp-toast { 0% { opacity: 0; transform: translateY(-8px); } 10% { opacity: 1; transform: none; } 82% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes mp-sheet { 0% { transform: translateY(24px); opacity: 0; } 100% { transform: none; opacity: 1; } }
+</style>
+</helmet>
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="430px,880px">
+  <div style="position: relative; height: 100%; display: flex; flex-direction: column; background: var(--color-bg); font-family: var(--font-body); color: var(--color-text); overflow: hidden;" data-screen-label="메인">
+
+    <div style="display: flex; align-items: center; gap: 8px; padding: 58px 18px 8px;">
+      <span style="width: 8px; height: 8px; border-radius: 50%; background: {{ portDotColor }};"></span>
+      <span style="font-family: var(--font-heading); font-weight: 600; font-size: 16px; letter-spacing: 0.02em;">MEDI-PUSH ONE</span>
+      <span class="text-muted" style="font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;">{{ portLabel }}</span>
+      <button class="btn btn-icon btn-ghost" style="margin-left: auto;" onClick="{{ toggleSettings }}" aria-label="설정">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+      </button>
+    </div>
+
+    <sc-if value="{{ emergency }}" hint-placeholder-val="{{ false }}">
+      <div style="background: var(--color-accent-900); color: var(--color-accent-100); display: flex; align-items: center; gap: 10px; padding: 10px 18px; animation: mp-pulse 1.6s ease-in-out infinite;">
+        <strong style="font-family: var(--font-heading); font-size: 15px;">응급 상황</strong>
+        <span style="font-size: 12px; opacity: 0.85;">보호자 알림 발송됨 (모의)</span>
+        <button class="btn" style="margin-left: auto; padding: 3px 10px; font-size: 12px; border-color: var(--color-accent-100); color: var(--color-accent-100);" onClick="{{ cancelEmergency }}">해제</button>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ fxActive }}" hint-placeholder-val="{{ false }}">
+      <div style="position: absolute; top: 64px; left: 50%; transform: translateX(-50%); z-index: 30; animation: mp-toast 2.4s ease forwards; pointer-events: none; width: max-content;">
+        <div class="blueprint" style="display: flex; align-items: center; gap: 8px; background: var(--color-bg); padding: 8px 14px; box-shadow: var(--shadow-md);">
+          <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent-600)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+          <span style="font-size: 13px;">복용 기록됨 · <strong style="font-family: var(--font-heading);">{{ toastTime }}</strong></span>
+        </div>
+      </div>
+    </sc-if>
+
+    <div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 18px;">
+      <span class="card-kicker" style="font-size: 11px; letter-spacing: 0.14em;">마지막 복용 후 경과</span>
+      <div style="position: relative; margin-top: 4px;">
+        <sc-if value="{{ fxActive }}" hint-placeholder-val="{{ false }}">
+          <span style="position: absolute; inset: -12px -26px; border: 1px solid var(--color-accent-400); animation: mp-ring 1.5s ease-out forwards; pointer-events: none;"></span>
+          <span style="position: absolute; inset: -12px -26px; border: 1px solid var(--color-accent-300); animation: mp-ring 1.5s ease-out 0.35s forwards; pointer-events: none;"></span>
+        </sc-if>
+        <div style="font-family: var(--font-heading); font-weight: 600; font-size: 76px; line-height: 1; letter-spacing: -0.01em; color: {{ heroColor }}; animation: {{ heroAnim }};">{{ elapsedText }}</div>
+      </div>
+      <div style="margin-top: 14px; font-size: 14px;" class="text-muted">마지막 복용 <strong style="color: var(--color-text);">{{ lastTakeLabel }}</strong></div>
+      <sc-if value="{{ hasPrediction }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top: 4px; font-size: 13px;" class="text-muted">다음 복용 예상 <strong style="color: var(--color-accent-700); white-space: nowrap;">{{ predictLabel }}</strong> · <span style="white-space: nowrap;">평균 간격 {{ avgIntervalText }}</span></div>
+      </sc-if>
+
+      <div style="width: 100%; max-width: 340px; margin-top: 34px;">
+        <div style="display: flex; justify-content: space-between; font-size: 10px; color: var(--color-neutral-600); margin-bottom: 4px;">
+          <span>오늘 0시</span><span>6</span><span>12</span><span>18</span><span>24시</span>
+        </div>
+        <div style="position: relative; height: 26px; border-left: 1px solid var(--color-divider); border-right: 1px solid var(--color-divider);">
+          <span style="position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--color-divider);"></span>
+          <span style="position: absolute; left: 25%; top: 8px; bottom: 8px; width: 1px; background: var(--color-neutral-300);"></span>
+          <span style="position: absolute; left: 50%; top: 8px; bottom: 8px; width: 1px; background: var(--color-neutral-300);"></span>
+          <span style="position: absolute; left: 75%; top: 8px; bottom: 8px; width: 1px; background: var(--color-neutral-300);"></span>
+          <sc-for list="{{ todayDots }}" as="d" hint-placeholder-count="2">
+            <span title="{{ d.tip }}" style="position: absolute; left: {{ d.left }}; top: 50%; width: 9px; height: 9px; transform: translate(-50%, -50%); background: var(--color-accent-500); border: 1px solid var(--color-accent-700); border-radius: 50%;"></span>
+          </sc-for>
+          <span style="position: absolute; left: {{ nowLeft }}; top: 0; bottom: 0; width: 1px; background: var(--color-accent-700);"></span>
+        </div>
+        <div style="font-size: 11px; color: var(--color-neutral-600); margin-top: 5px; text-align: left;">오늘 복용 {{ todayCount }}회 · <span style="color: var(--color-accent-700);">│</span> 현재 시각</div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 5px; margin-top: 26px;">
+        <sc-for list="{{ pillSlots }}" as="slot" hint-placeholder-count="10">
+          <span style="width: 11px; height: 11px; border: 1px solid var(--color-accent-600); background: {{ slot.bg }};"></span>
+        </sc-for>
+        <span class="text-muted" style="font-size: 12px; margin-left: 8px;">잔여 {{ remaining }}/{{ totalDoses }}정</span>
+      </div>
+      <sc-if value="{{ lowStock }}" hint-placeholder-val="{{ false }}">
+        <div style="font-size: 12px; color: var(--color-accent-700); margin-top: 6px;">잔량 부족 — 리필 필요</div>
+      </sc-if>
+    </div>
+
+    <div style="padding: 14px 18px 10px;">
+      <button class="btn btn-primary btn-block blueprint" style="height: 46px; font-size: 15px;" onClick="{{ openReport }}">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        상세 리포트
+      </button>
+    </div>
+
+    <sc-if value="{{ showSettings }}" hint-placeholder-val="{{ false }}">
+      <div style="position: absolute; inset: 0; z-index: 40; background: color-mix(in srgb, var(--color-neutral-900) 40%, transparent); display: flex; align-items: flex-end;" onClick="{{ closeSettings }}">
+        <div class="blueprint" style="width: 100%; background: var(--color-bg); padding: 20px 18px 26px; animation: mp-sheet 0.25s ease;" onClick="{{ stopClick }}" data-screen-label="설정 시트">
+          <i class="corner tl"></i><i class="corner tr"></i>
+          <div style="display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 12px;">
+            <span class="card-kicker">설정 · 데모 시뮬레이터</span>
+            <button class="btn btn-ghost" style="padding: 2px 8px; font-size: 13px;" onClick="{{ closeSettings }}">닫기</button>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <sc-if value="{{ notConnected }}" hint-placeholder-val="{{ true }}">
+              <button class="btn btn-secondary btn-block" onClick="{{ connectSerial }}">시리얼 연결 (9600bps)</button>
+            </sc-if>
+            <sc-if value="{{ connected }}" hint-placeholder-val="{{ false }}">
+              <button class="btn btn-secondary btn-block" onClick="{{ disconnectSerial }}">연결 해제</button>
+            </sc-if>
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 4px;">
+              <button class="btn btn-secondary" style="font-size: 12px;" onClick="{{ simTake }}">1회 — 복용</button>
+              <button class="btn btn-secondary" style="font-size: 12px;" onClick="{{ simReset }}">길게 — 리셋</button>
+              <button class="btn btn-secondary" style="font-size: 12px;" onClick="{{ simEmergency }}">{{ emergencyBtnLabel }}</button>
+            </div>
+            <div class="text-muted" style="font-size: 11px; margin-top: 6px;">아두이노 미연결 시 시리얼 수신을 시뮬레이션합니다.</div>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ showReport }}" hint-placeholder-val="{{ false }}">
+      <div style="position: absolute; inset: 0; z-index: 50; background: var(--color-bg); display: flex; flex-direction: column; animation: mp-sheet 0.25s ease;" data-screen-label="상세 리포트">
+        <div style="display: flex; align-items: baseline; justify-content: space-between; padding: 16px 18px 10px; border-bottom: 1px solid var(--color-divider);">
+          <div>
+            <span class="card-kicker">상세 리포트</span>
+            <div style="font-family: var(--font-heading); font-weight: 600; font-size: 22px;">복용 패턴 분석</div>
+          </div>
+          <button class="btn btn-ghost" onClick="{{ closeReport }}">닫기</button>
+        </div>
+        <div style="flex: 1; overflow-y: auto; padding: 16px 18px 24px; display: flex; flex-direction: column; gap: 22px;">
+
+          <div>
+            <h6 style="margin: 0 0 8px; color: var(--color-accent-700);">복용 간격 추이 <span class="text-muted" style="text-transform: none; letter-spacing: 0; font-family: var(--font-body);">최근 {{ intervalCount }}회 · 평균 {{ avgIntervalText }}</span></h6>
+            <div style="position: relative; display: grid; grid-template-columns: repeat({{ intervalCols }}, 1fr); gap: 4px; align-items: end; height: 90px;">
+              <span style="position: absolute; left: 0; right: 0; bottom: {{ avgLineBottom }}; border-top: 1px dashed var(--color-accent-700); z-index: 1;"></span>
+              <sc-for list="{{ intervalBars }}" as="b" hint-placeholder-count="8">
+                <div title="{{ b.tip }}" style="display: flex; flex-direction: column; justify-content: flex-end; gap: 3px; height: 100%; text-align: center;">
+                  <span style="font-size: 9px; color: var(--color-accent-700);">{{ b.label }}</span>
+                  <div style="height: {{ b.h }}; background: {{ b.bg }}; border: 1px solid var(--color-accent-600);"></div>
+                </div>
+              </sc-for>
+            </div>
+            <div class="text-muted" style="font-size: 10px; margin-top: 4px;">막대 = 이전 복용과의 간격(시간) · 점선 = 평균</div>
+          </div>
+
+          <div>
+            <h6 style="margin: 0 0 8px; color: var(--color-accent-700);">시간대별 분포</h6>
+            <div style="display: grid; grid-template-columns: repeat(24, 1fr); gap: 2px; align-items: end; height: 54px;">
+              <sc-for list="{{ hourBars }}" as="h" hint-placeholder-count="24">
+                <div title="{{ h.tip }}" style="height: {{ h.h }}; background: var(--color-accent-400); border-top: 2px solid var(--color-accent-600);"></div>
+              </sc-for>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 9px; color: var(--color-neutral-600); margin-top: 3px;"><span>0시</span><span>6</span><span>12</span><span>18</span><span>24시</span></div>
+          </div>
+
+          <div>
+            <h6 style="margin: 0 0 8px; color: var(--color-accent-700);">최근 7일 복용 시각</h6>
+            <div style="display: flex; flex-direction: column; gap: 7px;">
+              <sc-for list="{{ dayStrips }}" as="s" hint-placeholder-count="7">
+                <div style="display: grid; grid-template-columns: 44px 1fr auto; gap: 8px; align-items: center;">
+                  <span class="text-muted" style="font-size: 11px;">{{ s.label }}</span>
+                  <div style="position: relative; height: 14px;">
+                    <span style="position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--color-neutral-300);"></span>
+                    <span style="position: absolute; left: 25%; top: 3px; bottom: 3px; width: 1px; background: var(--color-neutral-200);"></span>
+                    <span style="position: absolute; left: 50%; top: 3px; bottom: 3px; width: 1px; background: var(--color-neutral-200);"></span>
+                    <span style="position: absolute; left: 75%; top: 3px; bottom: 3px; width: 1px; background: var(--color-neutral-200);"></span>
+                    <sc-for list="{{ s.dots }}" as="d" hint-placeholder-count="2">
+                      <span title="{{ d.tip }}" style="position: absolute; left: {{ d.left }}; top: 50%; width: 7px; height: 7px; transform: translate(-50%, -50%); background: var(--color-accent-500); border: 1px solid var(--color-accent-700); border-radius: 50%;"></span>
+                    </sc-for>
+                  </div>
+                  <span class="text-muted" style="font-size: 11px;">{{ s.count }}회</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+
+          <div>
+            <h6 style="margin: 0 0 6px; color: var(--color-accent-700);">일별 로그</h6>
+            <table class="table" style="font-size: 13px;">
+              <thead><tr><th>날짜</th><th>복용 시각</th><th>횟수</th></tr></thead>
+              <tbody>
+                <sc-for list="{{ dailyLog }}" as="row" hint-placeholder-count="5">
+                  <tr>
+                    <td style="white-space: nowrap;">{{ row.date }}</td>
+                    <td class="text-muted" style="font-size: 12px;">{{ row.times }}</td>
+                    <td>{{ row.count }}</td>
+                  </tr>
+                </sc-for>
+              </tbody>
+            </table>
+          </div>
+
+          <div>
+            <h6 style="margin: 0 0 6px; color: var(--color-accent-700);">타임라인 <span class="text-muted" style="text-transform: none; letter-spacing: 0; font-family: var(--font-body);">최신순 · {{ eventCount }}건</span></h6>
+            <div style="border: 1px solid var(--color-divider); padding: 0 10px;">
+              <sc-for list="{{ timeline }}" as="ev" hint-placeholder-count="6">
+                <div style="display: grid; grid-template-columns: 44px 1fr auto; gap: 10px; align-items: center; padding: 9px 0; border-bottom: 1px solid var(--color-neutral-200);">
+                  <span style="font-family: var(--font-heading); font-size: 15px; color: var(--color-accent-700);">{{ ev.time }}</span>
+                  <span style="display: flex; flex-direction: column;">
+                    <span style="font-size: 13px; font-weight: 500;">{{ ev.title }}</span>
+                    <span class="text-muted" style="font-size: 11px;">{{ ev.meta }}</span>
+                  </span>
+                  <span class="tag {{ ev.tagClass }}" style="{{ ev.tagStyle }}">{{ ev.tagText }}</span>
+                </div>
+              </sc-for>
+              <sc-if value="{{ noEvents }}" hint-placeholder-val="{{ false }}">
+                <div class="text-muted" style="padding: 14px 0; font-size: 12px;">아직 기록이 없습니다.</div>
+              </sc-if>
+            </div>
+          </div>
+
+          <div>
+            <h6 style="margin: 0 0 6px; color: var(--color-accent-700);">보호자 알림 (모의)</h6>
+            <sc-for list="{{ guardianLog }}" as="g" hint-placeholder-count="2">
+              <div style="display: flex; gap: 8px; padding: 7px 0; border-bottom: 1px solid var(--color-neutral-200); font-size: 12px;">
+                <span style="font-family: var(--font-heading); color: var(--color-accent-700); min-width: 80px;">{{ g.time }}</span>
+                <span>{{ g.text }}</span>
+              </div>
+            </sc-for>
+            <sc-if value="{{ noGuardian }}" hint-placeholder-val="{{ false }}">
+              <div class="text-muted" style="font-size: 12px;">발송된 알림이 없습니다.</div>
+            </sc-if>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; margin-top: 4px;">
+            <button class="btn btn-ghost" onClick="{{ clearHistory }}">기록 초기화</button>
+            <button class="btn btn-primary" onClick="{{ closeReport }}">확인</button>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+  </div>
+</x-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 470, &quot;height&quot;: 950}, &quot;totalDoses&quot;: {&quot;editor&quot;: &quot;int&quot;, &quot;default&quot;: 10, &quot;min&quot;: 4, &quot;max&quot;: 30, &quot;tsType&quot;: &quot;number&quot;, &quot;section&quot;: &quot;디스펜서&quot;}, &quot;seedDemo&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;데모&quot;}}">
+class Component extends DCLogic {
+  state = { events: [], portState: 'disconnected', emergency: false, emergencyTs: null, showReport: false, showSettings: false, now: Date.now(), fx: null };
+  KEY = 'mp1.events.v1';
+
+  componentDidMount() {
+    let evs = [];
+    try { evs = JSON.parse(localStorage.getItem(this.KEY) || '[]'); } catch (e) {}
+    if (!evs.length && (this.props.seedDemo ?? true)) { evs = this.seedDemo(); this.save(evs); }
+    this.setState({ events: evs });
+    this.tick = setInterval(() => this.setState({ now: Date.now() }), 1000);
+  }
+  componentWillUnmount() { clearInterval(this.tick); clearTimeout(this.fxT); this.closePort(); }
+
+  seedDemo() {
+    // 심부전약 데모: 하루 2-3회, 시간이 일정하지 않은 실제같은 패턴
+    const evs = []; const now = new Date();
+    let remaining = this.total();
+    const plans = [[8.2, 15.5, 22.1], [9.0, 20.3], [7.8, 14.1, 21.6], [8.5, 13.2, 23.0], [10.1, 19.4], [8.0, 15.9, 21.2], [7.5, 14.6, 20.8]];
+    for (let d = 7; d >= 1; d--) {
+      plans[7 - d].forEach(hh => {
+        const t = new Date(now); t.setDate(t.getDate() - d);
+        t.setHours(Math.floor(hh), Math.round((hh % 1) * 60) + Math.floor(Math.random() * 12), 0, 0);
+        if (remaining <= 0) { evs.push({ type: 'RESET', ts: t.getTime() - 60000 }); remaining = this.total(); }
+        remaining--;
+        evs.push({ type: 'TAKE', ts: t.getTime(), taken: this.total() - remaining, remaining });
+      });
+    }
+    const t0 = new Date(now); t0.setHours(8, 12, 0, 0);
+    if (t0.getTime() < now.getTime() && remaining > 0) { remaining--; evs.push({ type: 'TAKE', ts: t0.getTime(), taken: this.total() - remaining, remaining }); }
+    return evs;
+  }
+  save(evs) { try { localStorage.setItem(this.KEY, JSON.stringify(evs)); } catch (e) {} }
+  addEvent(ev) {
+    const evs = this.state.events.concat([Object.assign({ ts: Date.now() }, ev)]);
+    this.save(evs); this.setState({ events: evs });
+  }
+  pulse() {
+    clearTimeout(this.fxT);
+    this.setState({ fx: Date.now() });
+    this.fxT = setTimeout(() => this.setState({ fx: null }), 2400);
+  }
+
+  async connectSerial() {
+    if (!navigator.serial) { this.addEvent({ type: 'INFO', text: '이 환경에서는 Web Serial을 지원하지 않습니다 (Chrome/Electron 필요)' }); return; }
+    try {
+      const port = await navigator.serial.requestPort();
+      await port.open({ baudRate: 9600 });
+      this.port = port; this.setState({ portState: 'connected' });
+      this.readLoop();
+    } catch (e) { this.setState({ portState: 'disconnected' }); }
+  }
+  async readLoop() {
+    const decoder = new TextDecoder(); let buf = '';
+    this.reader = this.port.readable.getReader();
+    try {
+      while (true) {
+        const { value, done } = await this.reader.read();
+        if (done) break;
+        buf += decoder.decode(value);
+        let i;
+        while ((i = buf.indexOf('\n')) >= 0) { const line = buf.slice(0, i).trim(); buf = buf.slice(i + 1); if (line) this.handleLine(line); }
+      }
+    } catch (e) {} finally { try { this.reader.releaseLock(); } catch (e) {} this.setState({ portState: 'disconnected' }); }
+  }
+  async closePort() {
+    try { if (this.reader) await this.reader.cancel(); } catch (e) {}
+    try { if (this.port) await this.port.close(); } catch (e) {}
+    this.port = null;
+  }
+  disconnectSerial() { this.closePort(); this.setState({ portState: 'disconnected' }); }
+
+  handleLine(line) {
+    const up = line.toUpperCase();
+    let m;
+    if (up.includes('MEDICINE BOX READY')) { this.addEvent({ type: 'READY' }); return; }
+    if (/EMERGENCY\s*,?\s*CANCEL/.test(up)) { this.setState({ emergency: false }); this.addEvent({ type: 'EMERGENCY_CANCEL' }); return; }
+    if ((m = up.match(/\[?\s*(\d+)\s*,\s*(\d+)\s*,\s*EMERGENCY\s*\]?/))) {
+      this.setState({ emergency: true, emergencyTs: Date.now() });
+      this.addEvent({ type: 'EMERGENCY', taken: +m[1], remaining: +m[2] }); return;
+    }
+    if ((m = up.match(/\[?\s*(\d+)\s*,\s*(\d+)\s*,\s*TAKE\s*\]?/))) { this.addEvent({ type: 'TAKE', taken: +m[1], remaining: +m[2] }); this.pulse(); return; }
+    if (up.includes('RESET')) { this.addEvent({ type: 'RESET' }); return; }
+    this.addEvent({ type: 'INFO', text: line });
+  }
+
+  total() { return this.props.totalDoses ?? 10; }
+  lastState() {
+    let taken = 0, remaining = this.total();
+    for (const e of this.state.events) {
+      if (e.type === 'RESET') { taken = 0; remaining = this.total(); }
+      else if (e.type === 'TAKE' || e.type === 'EMERGENCY') { if (e.remaining != null) { remaining = e.remaining; taken = e.taken; } }
+    }
+    return { taken, remaining };
+  }
+  fmtTime(ts) { const d = new Date(ts); return String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0'); }
+  fmtDateTime(ts) {
+    const d = new Date(ts); const today = new Date(); const y = new Date(); y.setDate(y.getDate() - 1);
+    const same = (a, b) => a.toDateString() === b.toDateString();
+    const day = same(d, today) ? '오늘' : same(d, y) ? '어제' : (d.getMonth() + 1) + '/' + d.getDate();
+    return day + ' ' + this.fmtTime(ts);
+  }
+  fmtDur(ms) {
+    const min = Math.floor(ms / 60000);
+    if (min < 1) return '방금 전';
+    if (min < 60) return min + '분';
+    const h = Math.floor(min / 60);
+    if (h < 48) return h + '시간 ' + (min % 60) + '분';
+    return Math.floor(h / 24) + '일 ' + (h % 24) + '시간';
+  }
+  fmtHours(hrs) { if (!isFinite(hrs)) return '—'; return hrs >= 1 ? (Math.round(hrs * 10) / 10) + '시간' : Math.round(hrs * 60) + '분'; }
+
+  renderVals() {
+    const now = this.state.now;
+    const evs = this.state.events;
+    const takes = evs.filter(e => e.type === 'TAKE');
+    const last = takes.length ? takes[takes.length - 1] : null;
+    const { remaining } = this.lastState();
+    const total = this.total();
+    const elapsed = last ? now - last.ts : null;
+    const fxActive = !!this.state.fx;
+
+    // 간격 분석 (최근 14일, 48시간 초과 간격 제외)
+    const recent = takes.filter(e => now - e.ts < 14 * 86400000);
+    const ivsAll = [];
+    for (let i = 1; i < recent.length; i++) {
+      const h = (recent[i].ts - recent[i - 1].ts) / 3600000;
+      if (h < 48) ivsAll.push({ h, ts: recent[i].ts });
+    }
+    const ivs = ivsAll.map(x => x.h);
+    const avg = ivs.length ? ivs.reduce((a, b) => a + b, 0) / ivs.length : NaN;
+    const predictTs = last && isFinite(avg) ? last.ts + avg * 3600000 : null;
+    const lateHint = !!(last && isFinite(avg) && elapsed > avg * 3600000 * 1.5) && !this.state.emergency;
+
+    const barsSrc = ivsAll.slice(-10);
+    const maxIv = Math.max(1, ...barsSrc.map(x => x.h), isFinite(avg) ? avg : 0);
+    const intervalBars = barsSrc.map(x => ({
+      h: Math.max(4, Math.round(x.h / maxIv * 68)) + 'px',
+      label: (Math.round(x.h * 10) / 10) + 'h',
+      bg: Math.abs(x.h - avg) > avg * 0.35 ? 'var(--color-accent-200)' : 'var(--color-accent-500)',
+      tip: this.fmtDateTime(x.ts) + ' · 간격 ' + this.fmtHours(x.h)
+    }));
+    const avgLineBottom = isFinite(avg) ? Math.round(avg / maxIv * 68) + 'px' : '0px';
+
+    const hourCounts = new Array(24).fill(0);
+    takes.forEach(e => hourCounts[new Date(e.ts).getHours()]++);
+    const maxH = Math.max(1, ...hourCounts);
+    const hourBars = hourCounts.map((c, h) => ({ h: Math.max(2, Math.round(c / maxH * 48)) + 'px', tip: h + '시 · ' + c + '회' }));
+
+    const dayMs = d => { const t = new Date(now); t.setDate(t.getDate() - d); return t; };
+    const days = ['일', '월', '화', '수', '목', '금', '토'];
+    const dotsFor = dayDate => takes.filter(e => new Date(e.ts).toDateString() === dayDate.toDateString())
+      .map(e => { const d = new Date(e.ts); const pct = (d.getHours() + d.getMinutes() / 60) / 24 * 100; return { left: pct.toFixed(1) + '%', tip: this.fmtTime(e.ts) }; });
+    const dayStrips = [];
+    for (let d = 6; d >= 0; d--) {
+      const dd = dayMs(d); const dots = dotsFor(dd);
+      dayStrips.push({ label: d === 0 ? '오늘' : (dd.getMonth() + 1) + '/' + dd.getDate() + ' ' + days[dd.getDay()], dots, count: dots.length });
+    }
+    const todayDots = dotsFor(new Date(now));
+    const nowD = new Date(now);
+    const nowLeft = ((nowD.getHours() + nowD.getMinutes() / 60) / 24 * 100).toFixed(1) + '%';
+
+    const byDay = {};
+    takes.slice().reverse().forEach(e => {
+      const d = new Date(e.ts); const k = (d.getMonth() + 1) + '/' + d.getDate() + ' (' + days[d.getDay()] + ')';
+      (byDay[k] = byDay[k] || []).push(this.fmtTime(e.ts));
+    });
+    const dailyLog = Object.keys(byDay).slice(0, 8).map(k => ({ date: k, times: byDay[k].slice().reverse().join('  '), count: byDay[k].length + '회' }));
+
+    const typeMap = {
+      TAKE: e => ({ title: '약 복용', meta: (e.taken != null ? '잔여 ' + e.remaining + '정' : ''), tagText: '복용', tagClass: 'tag-accent', tagStyle: '' }),
+      RESET: () => ({ title: '디스펜서 리셋', meta: '카트리지 리필', tagText: '리셋', tagClass: 'tag-neutral', tagStyle: '' }),
+      EMERGENCY: () => ({ title: '응급 상황 발생', meta: '보호자 알림 발송 (모의)', tagText: '응급', tagClass: '', tagStyle: 'background: var(--color-accent-900); color: var(--color-accent-100);' }),
+      EMERGENCY_CANCEL: () => ({ title: '응급 상황 해제', meta: '정상 모드로 전환', tagText: '해제', tagClass: 'tag-outline', tagStyle: '' }),
+      READY: () => ({ title: '기기 연결됨', meta: 'MEDICINE BOX READY 수신', tagText: '연결', tagClass: 'tag-neutral', tagStyle: '' }),
+      INFO: e => ({ title: '수신 메시지', meta: e.text || '', tagText: '정보', tagClass: 'tag-neutral', tagStyle: '' })
+    };
+    const timeline = evs.slice().reverse().slice(0, 60).map((e, i) => {
+      const v = (typeMap[e.type] || typeMap.INFO)(e);
+      return Object.assign({ id: i, time: this.fmtTime(e.ts) }, v, { meta: this.fmtDateTime(e.ts) + (v.meta ? ' · ' + v.meta : '') });
+    });
+
+    const guardianLog = evs.filter(e => e.type === 'EMERGENCY' || e.type === 'EMERGENCY_CANCEL').slice().reverse().map(e => ({
+      time: this.fmtDateTime(e.ts),
+      text: e.type === 'EMERGENCY' ? '응급 버튼 감지 — 보호자에게 문자 발송 (모의)' : '응급 해제 — 보호자에게 안내 발송 (모의)'
+    }));
+
+    const ps = this.state.portState;
+    return {
+      elapsedText: last ? this.fmtDur(elapsed) : '기록 없음',
+      heroColor: this.state.emergency ? 'var(--color-accent-900)' : lateHint ? 'var(--color-accent-700)' : 'var(--color-text)',
+      heroAnim: fxActive ? 'mp-settle 1.4s ease' : 'none',
+      fxActive,
+      toastTime: last ? this.fmtTime(last.ts) : '',
+      lastTakeLabel: last ? this.fmtDateTime(last.ts) : '—',
+      hasPrediction: !!predictTs,
+      predictLabel: predictTs ? this.fmtDateTime(predictTs) : '',
+      avgIntervalText: this.fmtHours(avg),
+      todayDots, nowLeft,
+      todayCount: todayDots.length,
+      remaining, totalDoses: total,
+      pillSlots: Array.from({ length: total }, (_, i) => ({ bg: i < remaining ? 'var(--color-accent-500)' : 'transparent' })),
+      lowStock: remaining <= Math.max(1, Math.round(total * 0.2)),
+      intervalBars, intervalCols: Math.max(1, intervalBars.length), intervalCount: intervalBars.length, avgLineBottom,
+      hourBars, dayStrips, dailyLog,
+      timeline, eventCount: evs.length, noEvents: evs.length === 0,
+      guardianLog, noGuardian: guardianLog.length === 0,
+      emergency: this.state.emergency,
+      emergencyBtnLabel: this.state.emergency ? '응급 해제' : '2회 — 응급',
+      portDotColor: ps === 'connected' ? 'var(--color-accent-500)' : 'var(--color-neutral-400)',
+      portLabel: ps === 'connected' ? 'Serial 9600 연결됨' : '포트 미연결',
+      connected: ps === 'connected', notConnected: ps !== 'connected',
+      connectSerial: () => this.connectSerial(),
+      disconnectSerial: () => this.disconnectSerial(),
+      simTake: () => { const s = this.lastState(); const r = s.remaining > 0 ? s.remaining - 1 : this.total() - 1; if (s.remaining <= 0) this.addEvent({ type: 'RESET' }); this.handleLine('[' + (this.total() - r) + ',' + r + ',TAKE]'); },
+      simReset: () => this.handleLine('RESET'),
+      simEmergency: () => { const s = this.lastState(); this.handleLine(this.state.emergency ? 'EMERGENCY,CANCEL' : '[' + s.taken + ',' + s.remaining + ',EMERGENCY]'); },
+      cancelEmergency: () => this.handleLine('EMERGENCY,CANCEL'),
+      showReport: this.state.showReport,
+      openReport: () => this.setState({ showReport: true }),
+      closeReport: () => this.setState({ showReport: false }),
+      showSettings: this.state.showSettings,
+      toggleSettings: () => this.setState(s => ({ showSettings: !s.showSettings })),
+      closeSettings: () => this.setState({ showSettings: false }),
+      stopClick: e => e.stopPropagation(),
+      clearHistory: () => { try { localStorage.removeItem(this.KEY); } catch (e) {} this.setState({ events: [], emergency: false, showReport: false }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

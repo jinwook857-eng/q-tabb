@@ -1,0 +1,13 @@
+{
+  "name": "medi-push-monitor",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Medi-Push One smart medication monitoring desktop app",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "devDependencies": {
+    "electron": "^44.0.0"
+  }
+}
