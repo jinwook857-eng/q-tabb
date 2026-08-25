@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q-Tab | 혁신적인 복약 솔루션</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary-color: #0046ad; --secondary-color: #00a8e8; --bg-light: #f8fafc; --text-dark: #1e293b; --text-gray: #64748b; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Noto Sans KR', sans-serif; line-height: 1.7; color: var(--text-dark); scroll-behavior: smooth; }
+        header { position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.98); border-bottom: 1px solid #e2e8f0; z-index: 1000; }
+        nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 2rem; }
+        .logo { font-size: 1.6rem; font-weight: 800; color: var(--primary-color); }
+        .menu a { text-decoration: none; color: var(--text-dark); margin-left: 2.5rem; font-size: 0.95rem; font-weight: 500; }
+        section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
+        .hero { height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(rgba(0,70,173,0.05), rgba(0,70,173,0.02)); }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; }
+        .btn-main { padding: 15px 35px; background: var(--primary-color); color: white; border-radius: 5px; text-decoration: none; font-weight: bold; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .img-container { background: var(--bg-light); border-radius: 20px; padding: 20px; }
+        .img-container img { width: 100%; border-radius: 15px; }
+        .vision-section { background-color: var(--primary-color); color: white; max-width: 100%; text-align: center; padding: 100px 20px; }
+        .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px; }
+        .team-card { padding: 30px; border: 1px solid #e2e8f0; border-radius: 10px; text-align: center; }
+        footer { background: #0f172a; color: #94a3b8; padding: 40px; text-align: center; }
+        @media (max-width: 768px) { .grid-2, .team-grid { grid-template-columns: 1fr; } .hero h1 { font-size: 2.2rem; } }
+    </style>
+</head>
+<body>
+    <header><nav><div class="logo">Q-Tab</div><div class="menu"><a href="#about">회사소개</a><a href="#product">Medi-Push</a><a href="#vision">미래비전</a><a href="#team">Team</a></div></nav></header>
+    <section class="hero">
+        <div><h1>복약의 번거로움을<br><span style="color:var(--primary-color)">단 한 번의 Push</span>로</h1><p>Q-Tab은 빠르고 위생적인 의약품 디스펜싱 시스템을 만듭니다.</p><br><a href="#product" class="btn-main">Medi-Push 알아보기</a></div>
+    </section>
+    <section id="about">
+        <div class="grid-2">
+            <div><h2 style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 20px;">열지 말고, 누르세요.</h2><p>Q-Tab은 레뷸라이저의 직관적인 인터페이스를 도입하여, 응급 환자 및 고령층을 위한 가장 혁신적인 복약 솔루션을 제공합니다.</p></div>
+            <div class="img-container"><img src="image2.jpg" alt="Medi-Push"></div>
+        </div>
+    </section>
+    <section id="product" style="background-color: var(--bg-light); max-width: 100%;">
+        <div style="max-width: 1200px; margin: 0 auto;" class="grid-2">
+            <div class="img-container" style="background: white;"><img src="image1.jpg" alt="구조도"></div>
+            <div><h2>One-Touch 메커니즘</h2><p>버튼 클릭 시 즉시 1정이 배출되어 입으로 전달되는 구조로, 아두이노 정밀 제어를 통해 오차 없는 복용을 지원합니다.</p></div>
+        </div>
+    </section>
+    <section id="vision" class="vision-section">
+        <h2>Future Vision</h2>
+        <div style="background: rgba(255,255,255,0.1); padding: 40px; border-radius: 15px; margin-top: 30px;">
+            <h3>Phase 2: 가정용 스마트 영양제 디스펜서</h3>
+            <p>개인별 맞춤형 영양제 조합 및 복용 루틴 관리 서비스를 통해 가정 내 정밀 헬스케어 솔루션으로 확장할 계획입니다.</p>
+        </div>
+    </section>
+    <section id="team">
+        <h2 style="text-align:center;">Team Q-Tab</h2>
+        <div class="team-grid">
+            <div class="team-card"><h4>기획 / 웹</h4><p>강지완</p></div>
+            <div class="team-card"><h4>하드웨어</h4><p>아두이노 제어</p></div>
+            <div class="team-card"><h4>기구 설계</h4><p>3D 모델링</p></div>
+        </div>
+    </section>
+    <section id="contact" style="text-align: center;">
+        <img src="image3.jpg" style="max-width:400px; width:100%; border-radius:20px; margin-bottom:20px;">
+        <p>문의: info@qtab-medipush.com</p>
+    </section>
+    <footer><p>&copy; 2024 Q-Tab Project. All Rights Reserved.</p></footer>
+</body>
+</html>
