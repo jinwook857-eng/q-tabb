@@ -175,6 +175,11 @@
         const lines = buffer.split(/\r?\n/);
         buffer = lines.pop() || '';
         lines.forEach(handleLine);
+        const pending = buffer.trim();
+        if (/^RESET$/i.test(pending)) {
+          handleLine(buffer);
+          buffer = '';
+        }
       }
       buffer += decoder.decode();
       if (buffer.trim()) handleLine(buffer);
