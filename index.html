@@ -2,222 +2,1963 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Q-Tab | 혁신적인 복약 솔루션</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Q-Tab의 원터치 경구약 디스펜서 Medi-Push One 소개 페이지"
+    >
+
+    <title>Q-Tab | Medi-Push One</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&display=swap"
+        rel="stylesheet"
+    >
+
     <style>
         :root {
-            --primary-color: #0046ad;
-            --secondary-color: #00a8e8;
-            --bg-light: #f8fafc;
-            --text-dark: #1e293b;
+            --primary: #0046ad;
+            --primary-dark: #002f75;
+            --secondary: #00a8e8;
+            --background: #f6f9fc;
+            --surface: #ffffff;
+            --text: #172033;
             --text-gray: #64748b;
-            --accent-red: #e11d48;
+            --border: #dce5ef;
+            --danger: #dc2626;
+            --danger-dark: #991b1b;
+            --danger-light: #fff1f2;
+            --success: #047857;
+            --success-light: #ecfdf5;
+            --warning: #b45309;
+            --warning-light: #fffbeb;
+            --shadow: 0 18px 45px rgba(15, 23, 42, 0.09);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Noto Sans KR', sans-serif; line-height: 1.7; color: var(--text-dark); background-color: #fff; scroll-behavior: smooth; }
-        
-        header { position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.98); border-bottom: 1px solid #e2e8f0; z-index: 1000; backdrop-filter: blur(10px); }
-        nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 2rem; }
-        .logo { font-size: 1.6rem; font-weight: 800; color: var(--primary-color); letter-spacing: -1px; }
-        .logo-sub { font-size: 0.75rem; color: var(--secondary-color); font-weight: 400; margin-left: 5px; }
-        .menu { display: flex; gap: 2.5rem; }
-        .menu a { text-decoration: none; color: var(--text-dark); font-size: 0.95rem; font-weight: 500; }
-        .menu a:hover { color: var(--primary-color); }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
-        .section-title { text-align: center; margin-bottom: 60px; }
-        .section-title h2 { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 15px; font-weight: 700; }
-        
-        .hero { height: 90vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(135deg, rgba(0, 70, 173, 0.05) 0%, rgba(0, 168, 232, 0.02) 100%); padding-top: 80px; }
-        .hero h1 { font-size: 3.8rem; line-height: 1.2; margin-bottom: 20px; color: #0f172a; font-weight: 700; }
-        .btn-main { display: inline-block; padding: 18px 40px; background: var(--primary-color); color: white; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(0, 70, 173, 0.3); transition: 0.3s; }
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px;
+        }
 
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-top: 40px; }
-        .img-container { background: var(--bg-light); border-radius: 20px; padding: 20px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05); }
-        .img-container img { width: 100%; border-radius: 15px; display: block; }
+        body {
+            font-family: "Noto Sans KR", sans-serif;
+            line-height: 1.75;
+            color: var(--text);
+            background: var(--surface);
+            word-break: keep-all;
+        }
 
-        .quote { font-style: italic; border-left: 4px solid var(--secondary-color); padding-left: 20px; margin-bottom: 25px; color: #475569; font-size: 1.1rem; }
-        
-        .feature-list { list-style: none; margin-top: 20px; }
-        .feature-list li { margin-bottom: 25px; padding-left: 35px; position: relative; color: var(--text-dark); }
-        .feature-list li::before { content: '✓'; position: absolute; left: 0; color: var(--secondary-color); font-weight: bold; font-size: 1.2rem; }
-        .feature-list li strong { color: var(--primary-color); display: block; margin-bottom: 5px; font-size: 1.1rem; }
+        img {
+            max-width: 100%;
+        }
 
-        .case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px; }
-        .case-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 15px; overflow: hidden; transition: 0.3s; }
-        .case-img { width: 100%; height: 250px; object-fit: cover; }
-        .case-body { padding: 30px; }
-        .case-tag { display: inline-block; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; margin-bottom: 15px; }
+        button,
+        a {
+            font-family: inherit;
+        }
 
-        .vision-section { background: var(--primary-color); color: white; max-width: 100%; text-align: center; padding: 100px 20px; }
-        .vision-card { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); padding: 50px; border-radius: 15px; margin-top: 40px; max-width: 900px; margin-left: auto; margin-right: auto; backdrop-filter: blur(10px); }
+        /* ================================
+           헤더
+        ================================= */
 
-        .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
-        .team-card { padding: 40px 20px; border: 1px solid #e2e8f0; border-radius: 10px; text-align: center; background: #fff; }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.94);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(14px);
+        }
 
-        footer { background: #0f172a; color: #94a3b8; padding: 60px 20px; text-align: center; font-size: 0.9rem; }
-        
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .grid-2, .case-grid, .team-grid { grid-template-columns: 1fr; }
-            .menu { display: none; }
+        nav {
+            width: min(1200px, calc(100% - 40px));
+            min-height: 76px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .logo {
+            color: var(--primary);
+            font-size: 1.55rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .logo-sub {
+            margin-left: 6px;
+            color: var(--secondary);
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0;
+        }
+
+        .menu {
+            display: flex;
+            align-items: center;
+            gap: 26px;
+        }
+
+        .menu a {
+            color: var(--text);
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .menu a:hover {
+            color: var(--primary);
+        }
+
+        /* ================================
+           공통 레이아웃
+        ================================= */
+
+        section {
+            width: min(1200px, calc(100% - 40px));
+            margin: 0 auto;
+            padding: 110px 0;
+        }
+
+        .full-section {
+            width: 100%;
+            max-width: none;
+        }
+
+        .section-inner {
+            width: min(1200px, calc(100% - 40px));
+            margin: 0 auto;
+        }
+
+        .section-title {
+            margin-bottom: 55px;
+            text-align: center;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 10px;
+            color: var(--secondary);
+            font-size: 0.82rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .section-title h2 {
+            color: var(--primary);
+            font-size: clamp(2rem, 4vw, 2.65rem);
+            line-height: 1.3;
+            letter-spacing: -0.04em;
+        }
+
+        .section-title p {
+            max-width: 760px;
+            margin: 14px auto 0;
+            color: var(--text-gray);
+            font-size: 1.04rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 60px;
+            align-items: center;
+        }
+
+        .content h3 {
+            margin-bottom: 18px;
+            color: var(--primary);
+            font-size: 1.7rem;
+            letter-spacing: -0.03em;
+        }
+
+        .content p + p {
+            margin-top: 14px;
+        }
+
+        .content p {
+            color: #475569;
+        }
+
+        .quote {
+            margin-bottom: 24px;
+            padding: 18px 22px;
+            color: #334155;
+            background: #f8fbff;
+            border-left: 5px solid var(--secondary);
+            border-radius: 0 12px 12px 0;
+            font-size: 1.08rem;
+            font-style: italic;
+            font-weight: 500;
+        }
+
+        .image-card {
+            padding: 18px;
+            overflow: hidden;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            box-shadow: var(--shadow);
+        }
+
+        .image-card img {
+            width: 100%;
+            display: block;
+            border-radius: 15px;
+        }
+
+        .muted-section {
+            background: var(--background);
+        }
+
+        /* ================================
+           히어로
+        ================================= */
+
+        .hero {
+            width: 100%;
+            max-width: none;
+            min-height: 92vh;
+            padding: 130px 20px 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            background:
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(0, 168, 232, 0.13),
+                    transparent 26%
+                ),
+                radial-gradient(
+                    circle at 85% 70%,
+                    rgba(0, 70, 173, 0.12),
+                    transparent 28%
+                ),
+                linear-gradient(135deg, #f8fbff 0%, #eef6ff 100%);
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 480px;
+            height: 480px;
+            right: -220px;
+            bottom: -240px;
+            border: 70px solid rgba(0, 70, 173, 0.04);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            max-width: 950px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            margin-bottom: 23px;
+            padding: 8px 16px;
+            color: var(--primary);
+            background: rgba(255, 255, 255, 0.86);
+            border: 1px solid rgba(0, 70, 173, 0.18);
+            border-radius: 999px;
+            font-size: 0.88rem;
+            font-weight: 700;
+        }
+
+        .hero h1 {
+            color: #0f172a;
+            font-size: clamp(2.7rem, 7vw, 5.2rem);
+            line-height: 1.15;
+            letter-spacing: -0.06em;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            max-width: 730px;
+            margin: 25px auto 38px;
+            color: var(--text-gray);
+            font-size: clamp(1rem, 2vw, 1.25rem);
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-flex;
+            min-height: 54px;
+            padding: 0 30px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9px;
+            font-weight: 700;
+            text-decoration: none;
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease,
+                background 0.2s ease;
+        }
+
+        .btn-primary {
+            color: #fff;
+            background: var(--primary);
+            box-shadow: 0 12px 28px rgba(0, 70, 173, 0.23);
+        }
+
+        .btn-secondary {
+            color: var(--primary);
+            background: #fff;
+            border: 1px solid rgba(0, 70, 173, 0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        /* ================================
+           핵심 가치
+        ================================= */
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+            margin-top: 50px;
+        }
+
+        .value-card {
+            padding: 30px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+        }
+
+        .value-number {
+            width: 44px;
+            height: 44px;
+            margin-bottom: 18px;
+            display: grid;
+            place-items: center;
+            color: #fff;
+            background: var(--primary);
+            border-radius: 12px;
+            font-weight: 800;
+        }
+
+        .value-card h3 {
+            margin-bottom: 8px;
+            color: var(--primary-dark);
+        }
+
+        .value-card p {
+            color: var(--text-gray);
+            font-size: 0.94rem;
+        }
+
+        /* ================================
+           적용 의약품
+        ================================= */
+
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 28px;
+        }
+
+        .case-card {
+            overflow: hidden;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: 0 14px 35px rgba(15, 23, 42, 0.06);
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .case-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .case-img {
+            width: 100%;
+            height: 285px;
+            display: block;
+            object-fit: contain;
+            padding: 20px;
+            background: #fff;
+        }
+
+        .case-body {
+            padding: 30px;
+            border-top: 1px solid var(--border);
+        }
+
+        .case-body h3 {
+            margin-bottom: 12px;
+            font-size: 1.35rem;
+        }
+
+        .case-body p {
+            color: var(--text-gray);
+        }
+
+        .case-tag {
+            display: inline-block;
+            margin-bottom: 14px;
+            padding: 5px 12px;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 800;
+        }
+
+        .tag-emergency {
+            color: var(--danger);
+            background: var(--danger-light);
+        }
+
+        .tag-accessibility {
+            color: var(--primary);
+            background: #eaf4ff;
+        }
+
+        .case-note {
+            margin-top: 18px;
+            padding: 13px 15px;
+            color: var(--warning);
+            background: var(--warning-light);
+            border-radius: 10px;
+            font-size: 0.85rem;
+        }
+
+        /* ================================
+           기능
+        ================================= */
+
+        .feature-list {
+            margin-top: 28px;
+            list-style: none;
+        }
+
+        .feature-list li {
+            position: relative;
+            margin-bottom: 20px;
+            padding-left: 34px;
+            color: #475569;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            position: absolute;
+            top: 0;
+            left: 0;
+            color: var(--secondary);
+            font-size: 1.15rem;
+            font-weight: 800;
+        }
+
+        .feature-list strong {
+            display: block;
+            margin-bottom: 3px;
+            color: var(--primary);
+            font-size: 1.02rem;
+        }
+
+        /* ================================
+           위급 상황 효과
+        ================================= */
+
+        .effect-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .effect-card {
+            padding: 28px 22px;
+            text-align: center;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 17px;
+        }
+
+        .effect-icon {
+            width: 52px;
+            height: 52px;
+            margin: 0 auto 17px;
+            display: grid;
+            place-items: center;
+            color: var(--primary);
+            background: #eaf4ff;
+            border-radius: 15px;
+            font-size: 1.35rem;
+            font-weight: 800;
+        }
+
+        .effect-card h3 {
+            margin-bottom: 8px;
+            color: var(--primary-dark);
+            font-size: 1.05rem;
+        }
+
+        .effect-card p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        .effect-summary {
+            margin-top: 34px;
+            padding: 24px 28px;
+            color: #334155;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-left: 5px solid var(--danger);
+            border-radius: 12px;
+        }
+
+        /* ================================
+           사용 설명서 및 시뮬레이션
+        ================================= */
+
+        .manual-layout {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 45px;
+            align-items: start;
+        }
+
+        .manual-list {
+            display: grid;
+            gap: 16px;
+        }
+
+        .manual-step {
+            display: grid;
+            grid-template-columns: 52px 1fr;
+            gap: 16px;
+            padding: 21px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+        }
+
+        .step-number {
+            width: 52px;
+            height: 52px;
+            display: grid;
+            place-items: center;
+            color: #fff;
+            background: var(--primary);
+            border-radius: 14px;
+            font-weight: 800;
+        }
+
+        .manual-step:nth-child(3) .step-number {
+            background: var(--danger);
+        }
+
+        .manual-step h3 {
+            margin-bottom: 4px;
+            font-size: 1.05rem;
+        }
+
+        .manual-step p {
+            color: var(--text-gray);
+            font-size: 0.92rem;
+        }
+
+        .device-panel {
+            position: sticky;
+            top: 105px;
+            padding: 30px;
+            color: #fff;
+            background: linear-gradient(155deg, #111827, #24334d);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 25px;
+            box-shadow: 0 25px 60px rgba(15, 23, 42, 0.24);
+        }
+
+        .device-label {
+            margin-bottom: 20px;
+            color: #93c5fd;
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.13em;
+            text-align: center;
+        }
+
+        .device-screen {
+            min-height: 175px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #07111f;
+            border: 3px solid #42526a;
+            border-radius: 16px;
+            box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.65);
+            text-align: center;
+        }
+
+        .screen-title {
+            color: #94a3b8;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+        }
+
+        .remaining {
+            margin-top: 5px;
+            color: #67e8f9;
+            font-size: 3.6rem;
+            line-height: 1;
+            font-weight: 800;
+        }
+
+        .remaining small {
+            margin-left: 3px;
+            color: #bae6fd;
+            font-size: 1rem;
+        }
+
+        .device-status {
+            margin-top: 14px;
+            color: #a7f3d0;
+            font-size: 0.88rem;
+        }
+
+        .device-screen.emergency {
+            border-color: #ef4444;
+            animation: emergencyPulse 0.75s infinite alternate;
+        }
+
+        .device-screen.emergency .remaining {
+            color: #f87171;
+            font-size: clamp(2rem, 6vw, 3rem);
+        }
+
+        @keyframes emergencyPulse {
+            from {
+                box-shadow:
+                    inset 0 0 25px rgba(220, 38, 38, 0.2),
+                    0 0 0 rgba(239, 68, 68, 0);
+            }
+
+            to {
+                box-shadow:
+                    inset 0 0 35px rgba(220, 38, 38, 0.42),
+                    0 0 28px rgba(239, 68, 68, 0.42);
+            }
+        }
+
+        .push-button {
+            width: 122px;
+            height: 122px;
+            margin: 25px auto 17px;
+            display: block;
+            color: #fff;
+            background:
+                radial-gradient(circle at 35% 30%, #f87171, #dc2626 50%, #991b1b);
+            border: 8px solid #4b5563;
+            border-radius: 50%;
+            box-shadow:
+                0 10px 0 #661515,
+                0 18px 30px rgba(0, 0, 0, 0.35);
+            cursor: pointer;
+            user-select: none;
+            touch-action: manipulation;
+            font-size: 1.05rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            transition:
+                transform 0.1s ease,
+                box-shadow 0.1s ease;
+        }
+
+        .push-button:active,
+        .push-button.pressed {
+            transform: translateY(8px);
+            box-shadow:
+                0 2px 0 #661515,
+                0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .button-guide {
+            color: #cbd5e1;
+            font-size: 0.83rem;
+            line-height: 1.8;
+            text-align: center;
+        }
+
+        .notification-panel {
+            margin-top: 24px;
+            padding: 18px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+        }
+
+        .notification-panel h4 {
+            margin-bottom: 10px;
+            color: #fff;
+            font-size: 0.9rem;
+        }
+
+        .notification-log {
+            min-height: 48px;
+            color: #cbd5e1;
+            font-size: 0.82rem;
+        }
+
+        .notification-item {
+            margin-top: 7px;
+            padding: 8px 10px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 8px;
+        }
+
+        .demo-notice {
+            margin-top: 20px;
+            color: #94a3b8;
+            font-size: 0.76rem;
+            text-align: center;
+        }
+
+        /* ================================
+           위급 상황 절차
+        ================================= */
+
+        .protocol {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 18px;
+            position: relative;
+        }
+
+        .protocol-card {
+            position: relative;
+            padding: 27px 22px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+        }
+
+        .protocol-card span {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--secondary);
+            font-weight: 800;
+            font-size: 0.79rem;
+            letter-spacing: 0.09em;
+        }
+
+        .protocol-card h3 {
+            margin-bottom: 8px;
+            color: var(--primary-dark);
+            font-size: 1.04rem;
+        }
+
+        .protocol-card p {
+            color: var(--text-gray);
+            font-size: 0.89rem;
+        }
+
+        /* ================================
+           비전
+        ================================= */
+
+        .vision-section {
+            padding: 110px 0;
+            color: #fff;
+            background:
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(0, 168, 232, 0.3),
+                    transparent 30%
+                ),
+                linear-gradient(135deg, var(--primary-dark), var(--primary));
+        }
+
+        .vision-section .section-title h2,
+        .vision-section .section-title p {
+            color: #fff;
+        }
+
+        .vision-section .section-title p {
+            opacity: 0.76;
+        }
+
+        .vision-card {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 44px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .vision-card h3 {
+            margin-bottom: 17px;
+            font-size: 1.55rem;
+        }
+
+        .vision-card p {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* ================================
+           팀
+        ================================= */
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        .team-card {
+            padding: 34px 24px;
+            text-align: center;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 17px;
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .team-icon {
+            width: 54px;
+            height: 54px;
+            margin: 0 auto 17px;
+            display: grid;
+            place-items: center;
+            color: #fff;
+            background: var(--primary);
+            border-radius: 15px;
+            font-weight: 800;
+        }
+
+        .team-card h3 {
+            color: var(--primary-dark);
+            font-size: 1.05rem;
+        }
+
+        .team-name {
+            margin-top: 8px;
+            font-size: 1.25rem;
+            font-weight: 800;
+        }
+
+        .team-role {
+            margin-top: 5px;
+            color: var(--text-gray);
+            font-size: 0.88rem;
+        }
+
+        /* ================================
+           안전 안내 및 푸터
+        ================================= */
+
+        .safety-box {
+            padding: 25px 28px;
+            color: #7c2d12;
+            background: #fff7ed;
+            border: 1px solid #fed7aa;
+            border-radius: 15px;
+        }
+
+        .safety-box h3 {
+            margin-bottom: 9px;
+            font-size: 1.05rem;
+        }
+
+        .safety-box p {
+            font-size: 0.9rem;
+        }
+
+        footer {
+            padding: 55px 20px;
+            color: #94a3b8;
+            background: #0f172a;
+            text-align: center;
+        }
+
+        footer strong {
+            color: #fff;
+            font-size: 1.08rem;
+        }
+
+        footer p + p {
+            margin-top: 8px;
+        }
+
+        /* ================================
+           반응형
+        ================================= */
+
+        @media (max-width: 1000px) {
+            .menu {
+                gap: 15px;
+            }
+
+            .menu a {
+                font-size: 0.82rem;
+            }
+
+            .effect-grid,
+            .protocol {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 800px) {
+            .menu {
+                display: none;
+            }
+
+            nav {
+                min-height: 68px;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            .grid-2,
+            .case-grid,
+            .manual-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .value-grid,
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .device-panel {
+                position: static;
+            }
+
+            .hero {
+                min-height: 86vh;
+            }
+
+            .grid-2 {
+                gap: 35px;
+            }
+
+            .case-img {
+                height: 240px;
+            }
+        }
+
+        @media (max-width: 560px) {
+            body {
+                word-break: normal;
+            }
+
+            .section-inner,
+            section {
+                width: min(100% - 28px, 1200px);
+            }
+
+            .effect-grid,
+            .protocol {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding-right: 14px;
+                padding-left: 14px;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .vision-card {
+                padding: 30px 22px;
+            }
+
+            .manual-step {
+                grid-template-columns: 44px 1fr;
+                padding: 17px;
+            }
+
+            .step-number {
+                width: 44px;
+                height: 44px;
+            }
+
+            .device-panel {
+                padding: 22px 17px;
+            }
         }
     </style>
 </head>
+
 <body>
 
+    <!-- 상단 메뉴 -->
     <header>
         <nav>
-            <div class="logo">Q-Tab <span class="logo-sub">Quick-Tablet</span></div>
+            <a href="#home" class="logo">
+                Q-Tab
+                <span class="logo-sub">Quick-Tablet</span>
+            </a>
+
             <div class="menu">
                 <a href="#about">회사소개</a>
                 <a href="#cases">적용사례</a>
                 <a href="#product">제품소개</a>
-                <a href="#background">개발배경</a>
+                <a href="#effects">사용효과</a>
+                <a href="#manual">사용설명서</a>
                 <a href="#vision">미래비전</a>
                 <a href="#team">Team</a>
             </div>
         </nav>
     </header>
 
-    <!-- 히어로 -->
-    <section class="hero">
-        <div>
-            <h1>열지 말고, <span style="color: var(--primary-color);">누르세요.</span></h1>
-            <p>복약의 장벽을 낮추어 생명을 지킵니다. Medi-Push One</p>
-            <a href="#cases" class="btn-main">적용 사례 보기</a>
-        </div>
-    </section>
+    <main>
 
-    <!-- [회사 소개: About Us] -->
-    <section id="about">
-        <div class="section-title">
-            <h2>[회사 소개: About Us]</h2>
-        </div>
-        <div class="grid-2">
-            <div class="content">
-                <div class="quote">"복약의 장벽을 낮추어 생명을 지킵니다."</div>
-                <p><strong>Medi-Push</strong>는 기존의 번거로운 복약 과정을 혁신하여, 누구나 쉽고 빠르게 약을 복용할 수 있는 솔루션을 연구하는 메디테크(Medi-Tech) 팀입니다.</p>
-                <p>우리는 기술이 사람을 돕는 가장 따뜻한 방법은 '간편함'에 있다고 믿습니다.</p>
-            </div>
-            <div class="img-container">
-                <!-- 파일명 image2.jpg.png 반영 -->
-                <img src="image2.jpg.png" alt="Medi-Push">
-            </div>
-        </div>
-    </section>
+        <!-- 메인 화면 -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <span class="hero-badge">
+                    Q-Tab Medical Dispensing Solution
+                </span>
 
-    <!-- Target Medication 사례 -->
-    <section id="cases" style="background-color: var(--bg-light); max-width: 100%;">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <div class="section-title">
-                <h2>Target Medication</h2>
-                <p>Medi-Push One이 골든타임을 지키는 법</p>
-            </div>
-            <div class="case-grid">
-                <!-- 니트로글리세린 사례 (image4.jpg.jpg 반영) -->
-                <div class="case-card">
-                    <img src="image4.jpg.jpg" class="case-img" alt="니트로글리세린">
-                    <div class="case-body">
-                        <span class="case-tag" style="background:#ffe4e6; color:#e11d48;">심혈관 질환 (응급)</span>
-                        <h3>니트로글리세린 (설하정)</h3>
-                        <p style="margin-top: 15px; color: var(--text-gray);">협심증 발작 시 1분 1초가 급한 골든타임 안에 복용해야 합니다. 하지만 긴박한 상황에서 작고 미끄러운 약병을 여는 것은 매우 어렵습니다. <strong>Medi-Push One은 즉각적인 복용을 보장합니다.</strong></p>
-                    </div>
-                </div>
-                <!-- 메토트렉세이트 사례 (image5.jpg.jpg 반영) -->
-                <div class="case-card">
-                    <img src="image5.jpg.jpg" class="case-img" alt="메토트렉세이트">
-                    <div class="case-body">
-                        <span class="case-tag" style="background:#e0f2fe; color:#0046ad;">류마티스 관절염 (만성)</span>
-                        <h3>메토트렉세이트 (MTX)</h3>
-                        <p style="margin-top: 15px; color: var(--text-gray);">손가락 관절 통증과 변형으로 인해 단단한 은박 PTP 포장을 뜯는 데 큰 고통을 느끼는 환자들을 위해, <strong>Medi-Push One은 통증 없는 무압박 배출을 지원합니다.</strong></p>
-                    </div>
+                <h1>
+                    열지 말고,<br>
+                    <span>누르세요.</span>
+                </h1>
+
+                <p>
+                    복약의 장벽을 낮추어 생명을 지키는 원터치
+                    경구약 디스펜서, Medi-Push One
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#product" class="btn btn-primary">
+                        제품 알아보기
+                    </a>
+
+                    <a href="#manual" class="btn btn-secondary">
+                        작동 시연하기
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- [제품 소개: Product Concept] & [핵심 기능] -->
-    <section id="product">
-        <div class="section-title">
-            <h2>[제품 소개: Product Concept]</h2>
-        </div>
-        <div class="grid-2">
-            <div class="img-container">
-                <!-- 파일명 image1.jpg.png 반영 -->
-                <img src="image1.jpg.png" alt="내부 구조도">
-            </div>
-            <div class="content">
-                <h3 style="color: var(--text-dark); margin-bottom:10px;">제품명: Medi-Push One (메디푸시 원)</h3>
-                <div class="quote">"열지 말고, 누르세요."</div>
-                <p>메디푸시는 레뷸라이저(흡입기)의 직관적인 인터페이스를 경구약 복용에 도입한 세계 최초의 원터치 디스펜서입니다. 응급 상황이나 거동이 불편한 환자, 손의 근력이 약해진 고령층을 위해 설계되었습니다.</p>
-                
-                <h3 style="margin-top: 40px;">[핵심 기능: Key Features]</h3>
-                <ul class="feature-list">
-                    <li><strong>1. One-Touch Dispensing</strong> 뚜껑을 돌려 열고 약을 덜어내는 5단계 과정을 단 1단계(Push)로 단축.</li>
-                    <li><strong>2. Hygienic System</strong> 손에 알약을 직접 닿게 하지 않아 교차 오염을 방지하고 위생적인 복약 환경 제공.</li>
-                    <li><strong>3. Precision Engineering</strong> 내부 셔터 메커니즘을 통해 버튼 클릭 시 정확히 알약 1정만 배출되도록 설계.</li>
-                    <li><strong>4. Smart Monitoring (Ready)</strong> 아두이노 기반 센서를 통해 복약 시간과 횟수를 자동 기록하여 보호자와 의료진에게 전송 가능 (개발 중).</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- [개발 배경: Development Background] -->
-    <section id="background" style="background-color: var(--bg-light); max-width: 100%;">
-        <div style="max-width: 1200px; margin: 0 auto;">
+        <!-- 회사 소개 -->
+        <section id="about">
             <div class="section-title">
-                <h2>[개발 배경: Development Background]</h2>
+                <span class="eyebrow">About Q-Tab</span>
+                <h2>복약의 장벽을 낮추어<br>생명을 지킵니다</h2>
             </div>
+
             <div class="grid-2">
                 <div class="content">
-                    <div class="quote">"매일 챙겨 먹어야 하는 약, 하지만 누군가에게는 뚜껑을 여는 것조차 힘겨운 일입니다."</div>
-                    <p>특히 협심증이나 천식 등 급박한 투약이 필요한 상황에서 기존 약병의 불편함은 치명적일 수 있습니다. 우리는 이 문제를 해결하기 위해 '누르는 즉시 입으로' 전달되는 구조를 고안했습니다.</p>
-                </div>
-                <div class="img-container" style="background:white;">
-                    <!-- 파일명 image3.jpg.png 반영 -->
-                    <img src="image3.jpg.png" alt="제품 전체샷">
-                </div>
-            </div>
-        </div>
-    </section>
+                    <div class="quote">
+                        “복약의 장벽을 낮추어 생명을 지킵니다.”
+                    </div>
 
-    <!-- 미래 비전 -->
-    <section id="vision" class="vision-section">
-        <div class="section-title">
-            <h2 style="color: white;">Future Vision</h2>
-            <p style="color: rgba(255,255,255,0.7);">Phase 2: 가정용 스마트 영양제 디스펜서</p>
-        </div>
-        <div class="vision-card">
-            <p>우리는 응급 의약품을 넘어, 일상적인 건강 관리를 위한 <strong>가정용 스마트 영양제 디스펜서</strong>로 확장합니다. 개인별 맞춤형 구독 서비스와 결합하여 가정 내 정밀 헬스케어의 거점이 될 것입니다.</p>
-        </div>
-    </section>
+                    <p>
+                        <strong>Q-Tab</strong>은 기존의 번거로운 복약
+                        과정을 혁신하여 누구나 쉽고 빠르게 약을 복용할
+                        수 있는 솔루션을 연구하는 메디테크(Medi-Tech)
+                        팀입니다.
+                    </p>
 
-    <!-- 팀 소개 -->
-    <section id="team">
-        <div class="section-title"><h2>Team Q-Tab</h2></div>
-        <div class="team-grid">
-            <div class="team-card">
-                <h4>🎯 기획 / 웹 개발</h4>
-                <p style="font-weight: bold; font-size: 1.2rem; margin-top:5px;">김진우</p>
+                    <p>
+                        첫 번째 제품인 <strong>Medi-Push One</strong>은
+                        뚜껑을 열고 약을 꺼내는 과정을 버튼 한 번의
+                        동작으로 단축하는 경구약 디스펜서입니다.
+                    </p>
+
+                    <p>
+                        우리는 기술이 사람을 돕는 가장 따뜻한 방법은
+                        복잡한 과정을 줄이는 ‘간편함’에 있다고 믿습니다.
+                    </p>
+                </div>
+
+                <div class="image-card">
+                    <img
+                        src="image2.jpg.png"
+                        alt="Medi-Push One 제품 외관"
+                    >
+                </div>
             </div>
-            <div class="team-card">
-                <h4>⚡ 아두이노 / 하드웨어 개발</h4>
-                <p style="font-weight: bold; font-size: 1.2rem; margin-top:5px;">김성준</p>
+
+            <div class="value-grid">
+                <article class="value-card">
+                    <div class="value-number">01</div>
+                    <h3>Quick</h3>
+                    <p>
+                        약병을 열고 수량을 확인하는 복잡한 과정을
+                        하나의 버튼 동작으로 단축합니다.
+                    </p>
+                </article>
+
+                <article class="value-card">
+                    <div class="value-number">02</div>
+                    <h3>Accessible</h3>
+                    <p>
+                        고령자와 손의 움직임이 불편한 사용자도
+                        쉽게 사용할 수 있는 구조를 지향합니다.
+                    </p>
+                </article>
+
+                <article class="value-card">
+                    <div class="value-number">03</div>
+                    <h3>Connected</h3>
+                    <p>
+                        복용 기록과 긴급 알림을 사용자 앱 및
+                        보호자 알림 시스템과 연결합니다.
+                    </p>
+                </article>
             </div>
-            <div class="team-card">
-                <h4>🔧 모델링 / 기구 설계</h4>
-                <p style="font-weight: bold; font-size: 1.2rem; margin-top:5px;">한지민</p>
+        </section>
+
+        <!-- 적용 의약품 -->
+        <section id="cases" class="full-section muted-section">
+            <div class="section-inner">
+                <div class="section-title">
+                    <span class="eyebrow">Target Medication</span>
+                    <h2>복약 속도와 접근성이<br>중요한 사용 상황</h2>
+                    <p>
+                        Medi-Push One은 의사의 처방과 약사의 안내에 따라
+                        제품에 적합한 정제를 보관·배출하는 것을 전제로
+                        기획한 시제품입니다.
+                    </p>
+                </div>
+
+                <div class="case-grid">
+
+                    <!-- 니트로글리세린 -->
+                    <article class="case-card">
+                        <img
+                            src="image4.jpg.jpg"
+                            class="case-img"
+                            alt="니트로글리세린 설하정"
+                        >
+
+                        <div class="case-body">
+                            <span class="case-tag tag-emergency">
+                                응급 복용 접근성
+                            </span>
+
+                            <h3>니트로글리세린 설하정</h3>
+
+                            <p>
+                                협심증 증상이 발생하면 환자는 의료진에게
+                                안내받은 방법에 따라 신속하게 약을 사용할
+                                필요가 있습니다. 그러나 흉통이나 불안,
+                                손 떨림이 있는 상황에서는 작은 약병을
+                                열고 정제를 꺼내는 과정이 어려울 수 있습니다.
+                            </p>
+
+                            <p style="margin-top: 13px;">
+                                Medi-Push One은 이러한 개봉 단계를 줄여
+                                사용자가 처방받은 약에 빠르게 접근하도록
+                                보조하는 것을 목표로 합니다.
+                            </p>
+
+                            <div class="case-note">
+                                니트로글리세린은 반드시 처방 및 의료진의
+                                복약 지시에 따라 사용해야 하며, 증상이
+                                지속되거나 심하면 즉시 119에 도움을
+                                요청해야 합니다.
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 메토트렉세이트 -->
+                    <article class="case-card">
+                        <img
+                            src="image5.jpg.jpg"
+                            class="case-img"
+                            alt="메토트렉세이트 정제"
+                        >
+
+                        <div class="case-body">
+                            <span class="case-tag tag-accessibility">
+                                복약 접근성 개선
+                            </span>
+
+                            <h3>메토트렉세이트 정제</h3>
+
+                            <p>
+                                류마티스 관절염 환자는 손가락 관절의
+                                통증이나 운동 제한으로 인해 PTP 포장에서
+                                정제를 꺼내는 데 어려움을 겪을 수 있습니다.
+                                디스펜서 방식은 이러한 포장 개봉 부담을
+                                줄이는 방향으로 활용할 수 있습니다.
+                            </p>
+
+                            <p style="margin-top: 13px;">
+                                이 사례는 ‘응급 복용’이 아니라 손의 힘이
+                                약한 사용자의 복약 접근성과 편의성을
+                                개선하기 위한 적용 사례입니다.
+                            </p>
+
+                            <div class="case-note">
+                                메토트렉세이트는 일반적으로 정해진 일정에
+                                따라 복용하는 전문의약품입니다. 임의로
+                                추가 복용해서는 안 되며 처방된 용법과
+                                용량을 반드시 지켜야 합니다.
+                            </div>
+                        </div>
+                    </article>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- 제품 소개 -->
+        <section id="product">
+            <div class="section-title">
+                <span class="eyebrow">Product Concept</span>
+                <h2>Medi-Push One</h2>
+                <p>
+                    “열지 말고, 누르세요.” 직관적인 조작 방식을
+                    경구약 복용 과정에 적용한 원터치 디스펜서
+                    시제품입니다.
+                </p>
+            </div>
+
+            <div class="grid-2">
+                <div class="image-card">
+                    <img
+                        src="image1.jpg.png"
+                        alt="Medi-Push One 내부 구조도"
+                    >
+                </div>
+
+                <div class="content">
+                    <div class="quote">
+                        “누르는 즉시 정제 한 알이 배출되는 구조”
+                    </div>
+
+                    <p>
+                        Medi-Push One은 상단 카트리지에 정제를
+                        보관하고, 버튼 입력 시 내부 셔터 메커니즘이
+                        작동하여 한 번에 한 알이 배출되도록 설계한
+                        시제품입니다.
+                    </p>
+
+                    <ul class="feature-list">
+                        <li>
+                            <strong>1. One-Touch Dispensing</strong>
+                            뚜껑을 열고 약을 꺼내는 여러 과정을
+                            버튼 한 번의 동작으로 단축합니다.
+                        </li>
+
+                        <li>
+                            <strong>2. Hygienic System</strong>
+                            정제를 손으로 직접 만지는 과정을 줄여
+                            보다 위생적인 복약 환경을 제공합니다.
+                        </li>
+
+                        <li>
+                            <strong>3. Precision Engineering</strong>
+                            내부 셔터 메커니즘을 이용해 버튼 입력마다
+                            정제 한 알을 배출하는 것을 목표로 설계했습니다.
+                        </li>
+
+                        <li>
+                            <strong>4. Remaining Quantity Display</strong>
+                            기본 잔량 10정에서 배출할 때마다 한 정씩
+                            차감하여 남은 수량을 화면에 표시합니다.
+                        </li>
+
+                        <li>
+                            <strong>5. Smart Monitoring</strong>
+                            복용 시간과 작동 횟수를 기록하고 사용자 앱에서
+                            확인할 수 있도록 확장할 계획입니다.
+                        </li>
+
+                        <li>
+                            <strong>6. Emergency Notification</strong>
+                            버튼을 빠르게 두 번 누르면 긴급 모드가
+                            활성화되고 사용자 앱 및 보호자에게 긴급
+                            알림이 전달되도록 설계했습니다.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 개발 배경 -->
+        <section id="background" class="full-section muted-section">
+            <div class="section-inner">
+                <div class="section-title">
+                    <span class="eyebrow">Development Background</span>
+                    <h2>왜 Medi-Push가 필요한가?</h2>
+                </div>
+
+                <div class="grid-2">
+                    <div class="content">
+                        <div class="quote">
+                            “매일 챙겨 먹어야 하는 약, 하지만
+                            누군가에게는 뚜껑을 여는 것조차
+                            힘겨운 일입니다.”
+                        </div>
+
+                        <p>
+                            급박한 상황에서는 통증과 불안, 손 떨림으로
+                            인해 약병의 뚜껑을 열고 필요한 정제를
+                            꺼내는 동작이 어려워질 수 있습니다.
+                        </p>
+
+                        <p>
+                            고령자나 손의 근력이 약한 사용자에게는
+                            일상적인 약병과 PTP 포장도 복약을 방해하는
+                            장벽이 될 수 있습니다.
+                        </p>
+
+                        <p>
+                            Q-Tab은 이 문제를 해결하기 위해
+                            <strong>‘버튼을 누르면 한 알이 배출되는 구조’</strong>와
+                            <strong>‘복약 기록 및 긴급 알림 기능’</strong>을
+                            결합했습니다.
+                        </p>
+                    </div>
+
+                    <div class="image-card">
+                        <img
+                            src="image3.jpg.png"
+                            alt="Medi-Push One 제품 전체 모습"
+                        >
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 위급 상황 사용 효과 -->
+        <section id="effects">
+            <div class="section-title">
+                <span class="eyebrow">Emergency Benefits</span>
+                <h2>위급 상황에서 기대할 수 있는 효과</h2>
+                <p>
+                    Medi-Push One은 의료행위를 대신하는 장치가 아니라,
+                    환자가 처방받은 약에 보다 빠르고 간편하게 접근하도록
+                    보조하는 것을 목표로 합니다.
+                </p>
+            </div>
+
+            <div class="effect-grid">
+                <article class="effect-card">
+                    <div class="effect-icon">01</div>
+                    <h3>개봉 단계 단축</h3>
+                    <p>
+                        약병 뚜껑을 돌리고 정제를 꺼내는 단계를
+                        버튼 동작으로 단순화합니다.
+                    </p>
+                </article>
+
+                <article class="effect-card">
+                    <div class="effect-icon">02</div>
+                    <h3>복약 접근성 향상</h3>
+                    <p>
+                        통증이나 손 떨림이 있는 상황에서도
+                        처방받은 약에 접근하기 쉽게 합니다.
+                    </p>
+                </article>
+
+                <article class="effect-card">
+                    <div class="effect-icon">03</div>
+                    <h3>보호자 상황 인지</h3>
+                    <p>
+                        긴급 모드가 활성화되면 보호자가 사용자의
+                        위급 상황을 빠르게 인지할 수 있습니다.
+                    </p>
+                </article>
+
+                <article class="effect-card">
+                    <div class="effect-icon">04</div>
+                    <h3>복약 정보 기록</h3>
+                    <p>
+                        작동 시간과 잔량을 기록해 이후 복약 상황을
+                        확인할 수 있도록 지원합니다.
+                    </p>
+                </article>
+            </div>
+
+            <div class="effect-summary">
+                <strong>발표 핵심:</strong>
+                Medi-Push One의 가치는 약효를 바꾸는 것이 아니라,
+                긴박하거나 불편한 상황에서 약을 꺼내는 물리적 장벽을
+                줄이고 보호자와의 연결을 강화하는 데 있습니다.
+            </div>
+        </section>
+
+        <!-- 사용 설명서 및 시뮬레이션 -->
+        <section id="manual" class="full-section muted-section">
+            <div class="section-inner">
+                <div class="section-title">
+                    <span class="eyebrow">User Manual & Demo</span>
+                    <h2>장치 기능 및 사용 설명서</h2>
+                    <p>
+                        오른쪽의 PUSH 버튼을 직접 눌러 발표 중
+                        작동 방식을 시연할 수 있습니다.
+                    </p>
+                </div>
+
+                <div class="manual-layout">
+
+                    <!-- 설명서 -->
+                    <div class="manual-list">
+                        <article class="manual-step">
+                            <div class="step-number">1</div>
+
+                            <div>
+                                <h3>한 번 누르기 — 정제 한 알 배출</h3>
+                                <p>
+                                    버튼을 한 번 누르면 정제 한 알이
+                                    배출됩니다. 초기 잔량은 10정이며
+                                    작동할 때마다 1정씩 감소합니다.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="manual-step">
+                            <div class="step-number">2</div>
+
+                            <div>
+                                <h3>잔여량 자동 표시</h3>
+                                <p>
+                                    장치 화면에 남은 정제 수량이
+                                    표시됩니다. 잔량이 0정이면 추가
+                                    배출을 중지하고 보충 안내를 표시합니다.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="manual-step">
+                            <div class="step-number">3</div>
+
+                            <div>
+                                <h3>두 번 누르기 — EMERGENCY</h3>
+                                <p>
+                                    버튼을 빠르게 두 번 누르면 화면에
+                                    EMERGENCY가 표시되고, 사용자 앱과
+                                    등록된 보호자에게 긴급 알림을
+                                    전송하는 방식입니다.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="manual-step">
+                            <div class="step-number">4</div>
+
+                            <div>
+                                <h3>길게 누르기 — 잔량 초기화</h3>
+                                <p>
+                                    정제를 다시 채운 후 버튼을 약 1초
+                                    이상 길게 누르면 표시 잔량이
+                                    10정으로 초기화됩니다.
+                                </p>
+                            </div>
+                        </article>
+
+                        <div class="safety-box">
+                            <h3>사용 전 확인 사항</h3>
+                            <p>
+                                장치에는 의료진 또는 약사가 적합성을
+                                확인한 정제만 보관해야 합니다. 약의
+                                종류·용량·복용 시점은 장치가 결정하지
+                                않으며 반드시 처방과 복약 지도를
+                                따라야 합니다.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 인터랙티브 시뮬레이터 -->
+                    <div class="device-panel">
+                        <div class="device-label">
+                            MEDI-PUSH ONE · PROTOTYPE DISPLAY
+                        </div>
+
+                        <div
+                            id="deviceScreen"
+                            class="device-screen"
+                            aria-live="polite"
+                        >
+                            <div class="screen-title" id="screenTitle">
+                                REMAINING TABLETS
+                            </div>
+
+                            <div class="remaining" id="remainingDisplay">
+                                10<small>정</small>
+                            </div>
+
+                            <div class="device-status" id="deviceStatus">
+                                READY · 사용 가능
+                            </div>
+                        </div>
+
+                        <button
+                            type="button"
+                            id="pushButton"
+                            class="push-button"
+                            aria-label="Medi-Push 작동 버튼"
+                        >
+                            PUSH
+                        </button>
+
+                        <div class="button-guide">
+                            한 번 클릭: 1정 배출<br>
+                            빠르게 두 번 클릭: 긴급 알림<br>
+                            1초 이상 누르기: 잔량 10정 초기화
+                        </div>
+
+                        <div class="notification-panel">
+                            <h4>APP / 보호자 알림 내역</h4>
+
+                            <div
+                                id="notificationLog"
+                                class="notification-log"
+                                aria-live="polite"
+                            >
+                                아직 생성된 알림이 없습니다.
+                            </div>
+                        </div>
+
+                        <div class="demo-notice">
+                            본 기능은 발표용 웹 시뮬레이션입니다.
+                            실제 앱·문자 전송 기능은 별도 서버와
+                            통신 모듈이 필요합니다.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 위급 상황 사용 절차 -->
+        <section id="protocol">
+            <div class="section-title">
+                <span class="eyebrow">Emergency Protocol</span>
+                <h2>위급 상황 사용 흐름</h2>
+                <p>
+                    실제 복용은 반드시 해당 의약품의 처방 및
+                    의료진의 안내에 따라야 합니다.
+                </p>
+            </div>
+
+            <div class="protocol">
+                <article class="protocol-card">
+                    <span>STEP 01</span>
+                    <h3>증상 인지</h3>
+                    <p>
+                        의료진에게 안내받은 증상이 발생하면
+                        안전한 자세를 취하고 장치를 준비합니다.
+                    </p>
+                </article>
+
+                <article class="protocol-card">
+                    <span>STEP 02</span>
+                    <h3>처방약 배출</h3>
+                    <p>
+                        PUSH 버튼을 한 번 눌러 장치에 보관된
+                        정제 한 알을 배출합니다.
+                    </p>
+                </article>
+
+                <article class="protocol-card">
+                    <span>STEP 03</span>
+                    <h3>지시에 따라 복용</h3>
+                    <p>
+                        배출된 정제를 처방받은 용법과 의료진의
+                        복약 안내에 따라 사용합니다.
+                    </p>
+                </article>
+
+                <article class="protocol-card">
+                    <span>STEP 04</span>
+                    <h3>긴급 도움 요청</h3>
+                    <p>
+                        필요한 경우 버튼을 두 번 눌러 보호자에게
+                        알리고, 심한 증상은 즉시 119에 신고합니다.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- 미래 비전 -->
+        <section id="vision" class="full-section vision-section">
+            <div class="section-inner">
+                <div class="section-title">
+                    <span class="eyebrow" style="color:#7dd3fc;">
+                        Future Vision
+                    </span>
+
+                    <h2>의약품에서 일상적인 건강 관리까지</h2>
+
+                    <p>
+                        Q-Tab은 원터치 디스펜싱 기술을 기반으로
+                        가정용 헬스케어 영역으로 확장합니다.
+                    </p>
+                </div>
+
+                <div class="vision-card">
+                    <h3>
+                        Phase 2 · 가정용 스마트 영양제 디스펜서
+                    </h3>
+
+                    <p>
+                        비타민과 유산균 등 매일 복용하는 건강기능식품을
+                        종류별로 보관하고, 사용자별 복용 일정과 잔량을
+                        관리하는 가정용 영양제 디스펜서를 기획하고
+                        있습니다. 향후 개인별 복용 알림, 가족 계정,
+                        잔량 관리, 정기 배송 서비스 등을 결합하여
+                        가정 내 건강 관리 플랫폼으로 발전시키는 것이
+                        Q-Tab의 목표입니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 팀 소개 -->
+        <section id="team">
+            <div class="section-title">
+                <span class="eyebrow">Team Q-Tab</span>
+                <h2>하나의 문제를 해결하는<br>세 가지 전문 영역</h2>
+            </div>
+
+            <div class="team-grid">
+                <article class="team-card">
+                    <div class="team-icon">PM</div>
+                    <h3>기획 / 앱·웹 개발</h3>
+                    <p class="team-name">김진우</p>
+                    <p class="team-role">
+                        제품 기획, 서비스 설계 및 발표용 웹 구현
+                    </p>
+                </article>
+
+                <article class="team-card">
+                    <div class="team-icon">HW</div>
+                    <h3>아두이노 / 하드웨어</h3>
+                    <p class="team-name">김성준</p>
+                    <p class="team-role">
+                        버튼 입력, 잔량 표시 및 전자 제어 구현
+                    </p>
+                </article>
+
+                <article class="team-card">
+                    <div class="team-icon">3D</div>
+                    <h3>모델링 / 기구 설계</h3>
+                    <p class="team-name">한지민</p>
+                    <p class="team-role">
+                        제품 외형, 내부 셔터 및 배출 구조 설계
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- 안전 안내 -->
+        <section style="padding-top: 0;">
+            <div class="safety-box">
+                <h3>시제품 및 의료 안전 안내</h3>
+                <p>
+                    Medi-Push One은 제품제작 캠프에서 제작한
+                    발표용 시제품이며 현재 허가된 의료기기가 아닙니다.
+                    약의 보관 안정성, 정제 크기별 배출 정확도, 오작동
+                    방지, 어린이 보호 기능, 위생·세척 구조, 전자통신
+                    신뢰성 등에 대한 추가 검증이 필요합니다. 실제
+                    의약품 복용은 반드시 의사·약사의 지시를 따라야
+                    하며, 위급한 증상이 발생하면 장치 알림에만
+                    의존하지 말고 즉시 119에 신고해야 합니다.
+                </p>
+            </div>
+        </section>
+
+    </main>
 
     <footer>
-        <p style="font-weight: 700; color: #fff;">Q-Tab (Quick-Tablet) Project</p>
-        <p style="margin-top: 10px; opacity: 0.6;">&copy; 2026 Q-Tab. All Rights Reserved.</p>
+        <strong>Q-Tab · Quick-Tablet</strong>
+        <p>Medi-Push One | 복약의 장벽을 낮추는 원터치 솔루션</p>
+        <p>© 2026 Q-Tab. Product Creation Camp Prototype.</p>
     </footer>
+
+    <script>
+        /*
+         * Medi-Push One 발표용 시뮬레이터
+         *
+         * 한 번 클릭: 잔량 1정 감소
+         * 두 번 클릭: EMERGENCY 및 알림 생성
+         * 1초 이상 길게 누르기: 잔량 10정 초기화
+         */
+
+        const pushButton = document.getElementById("pushButton");
+        const deviceScreen = document.getElementById("deviceScreen");
+        const screenTitle = document.getElementById("screenTitle");
+        const remainingDisplay =
+            document.getElementById("remainingDisplay");
+        const deviceStatus = document.getElementById("deviceStatus");
+        const notificationLog =
+            document.getElementById("notificationLog");
+
+        let remainingTablets = 10;
+        let clickCount = 0;
+        let clickTimer = null;
+        let pressTimer = null;
+        let longPressActivated = false;
+        let notificationItems = [];
+
+        const LONG_PRESS_TIME = 1000;
+        const DOUBLE_CLICK_DELAY = 320;
+
+        function getCurrentTime() {
+            return new Intl.DateTimeFormat("ko-KR", {
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit"
+            }).format(new Date());
+        }
+
+        function updateRemainingScreen(message) {
+            deviceScreen.classList.remove("emergency");
+            screenTitle.textContent = "REMAINING TABLETS";
+
+            remainingDisplay.innerHTML =
+                `${remainingTablets}<small>정</small>`;
+
+            deviceStatus.textContent = message;
+        }
+
+        function addNotification(message, isEmergency = false) {
+            const time = getCurrentTime();
+
+            notificationItems.unshift({
+                text: message,
+                time: time,
+                emergency: isEmergency
+            });
+
+            notificationItems = notificationItems.slice(0, 4);
+
+            notificationLog.innerHTML = notificationItems
+                .map((item) => {
+                    const background = item.emergency
+                        ? "rgba(220, 38, 38, 0.22)"
+                        : "rgba(255, 255, 255, 0.06)";
+
+                    const color = item.emergency
+                        ? "#fecaca"
+                        : "#cbd5e1";
+
+                    return `
+                        <div
+                            class="notification-item"
+                            style="
+                                background:${background};
+                                color:${color};
+                            "
+                        >
+                            ${item.time} · ${item.text}
+                        </div>
+                    `;
+                })
+                .join("");
+        }
+
+        function dispenseTablet() {
+            if (remainingTablets <= 0) {
+                updateRemainingScreen(
+                    "EMPTY · 정제를 보충한 뒤 길게 눌러 초기화하세요."
+                );
+
+                addNotification(
+                    "잔량이 없어 정제를 배출하지 못했습니다."
+                );
+
+                return;
+            }
+
+            remainingTablets -= 1;
+
+            updateRemainingScreen(
+                `DISPENSED · 1정 배출 · ${getCurrentTime()}`
+            );
+
+            addNotification(
+                `정제 1정 배출 · 잔량 ${remainingTablets}정`
+            );
+
+            if (remainingTablets === 0) {
+                deviceStatus.textContent =
+                    "EMPTY · 잔량 0정 · 정제를 보충하세요.";
+
+                addNotification(
+                    "잔량이 0정입니다. 정제를 보충해 주세요."
+                );
+            }
+        }
+
+        function activateEmergency() {
+            deviceScreen.classList.add("emergency");
+
+            screenTitle.textContent = "EMERGENCY MODE";
+            remainingDisplay.textContent = "EMERGENCY";
+
+            deviceStatus.textContent =
+                `알림 전송 완료 · ${getCurrentTime()}`;
+
+            addNotification(
+                "사용자 앱에 긴급 알림을 전송했습니다.",
+                true
+            );
+
+            addNotification(
+                "등록된 보호자에게 긴급 알림을 전송했습니다.",
+                true
+            );
+
+            /*
+             * 브라우저 알림 권한이 이미 허용된 경우에만
+             * 데스크톱 알림을 추가로 표시합니다.
+             */
+            if (
+                "Notification" in window &&
+                Notification.permission === "granted"
+            ) {
+                new Notification("Medi-Push EMERGENCY", {
+                    body:
+                        "사용자의 Medi-Push 장치에서 " +
+                        "긴급 신호가 발생했습니다."
+                });
+            }
+
+            window.setTimeout(() => {
+                updateRemainingScreen(
+                    "READY · 긴급 알림 전송 완료"
+                );
+            }, 3500);
+        }
+
+        function resetRemaining() {
+            remainingTablets = 10;
+
+            updateRemainingScreen(
+                `RESET COMPLETE · 잔량 10정 · ${getCurrentTime()}`
+            );
+
+            addNotification(
+                "정제 보충 후 잔량이 10정으로 초기화되었습니다."
+            );
+        }
+
+        function handleShortClick() {
+            clickCount += 1;
+
+            if (clickCount === 1) {
+                clickTimer = window.setTimeout(() => {
+                    dispenseTablet();
+                    clickCount = 0;
+                }, DOUBLE_CLICK_DELAY);
+            }
+
+            if (clickCount === 2) {
+                window.clearTimeout(clickTimer);
+                clickCount = 0;
+                activateEmergency();
+            }
+        }
+
+        function startPress(event) {
+            event.preventDefault();
+
+            longPressActivated = false;
+            pushButton.classList.add("pressed");
+
+            pressTimer = window.setTimeout(() => {
+                longPressActivated = true;
+                clickCount = 0;
+
+                if (clickTimer) {
+                    window.clearTimeout(clickTimer);
+                }
+
+                resetRemaining();
+            }, LONG_PRESS_TIME);
+        }
+
+        function endPress(event) {
+            event.preventDefault();
+
+            window.clearTimeout(pressTimer);
+            pushButton.classList.remove("pressed");
+
+            if (!longPressActivated) {
+                handleShortClick();
+            }
+        }
+
+        function cancelPress() {
+            window.clearTimeout(pressTimer);
+            pushButton.classList.remove("pressed");
+        }
+
+        pushButton.addEventListener("pointerdown", startPress);
+        pushButton.addEventListener("pointerup", endPress);
+        pushButton.addEventListener("pointerleave", cancelPress);
+        pushButton.addEventListener("pointercancel", cancelPress);
+
+        /*
+         * 키보드 접근성:
+         * Enter 또는 Space를 누르면 한 번 클릭으로 작동합니다.
+         */
+        pushButton.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                handleShortClick();
+            }
+        });
+    </script>
 
 </body>
 </html>
